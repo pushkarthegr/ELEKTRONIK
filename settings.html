@@ -1,0 +1,288 @@
+<html>
+
+<head><title>Settings - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+
+
+
+  <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+
+  
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/599f35f2d2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="body" id="body" onload = "load()" style="background-color: #ffebb3;">
+  <div class="header"> 
+    <table style="width:100%;margin-right:2%;">
+      <tr>
+        <td id="imgthingy"><a id="boss_1" style="float:left;" href="index.html">
+          <img id="logo" src="Elektronik_1.png"></a>
+
+        </td>
+        <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee>
+          <p id="ohbhai">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
+       </marquee>
+       </center>
+        </td>
+     </tr>
+   </table>
+</div>
+  <ul class="navbar navbar-default navbar-fixed-top " id="navbar">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+  <!-- This is Shop -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+  <!-- This is Sell -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+  <!-- This is About Us -->
+  <li class="navbar_list"> <a style="float:right;" class="active" href="settings.html"><i class="fas fa-cog"id="activeicon"></i> Settings </a> </li>
+   <!-- This is Cart -->
+     <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+     <!-- This is Help -->
+     </ul>
+<div class="modal fade" id="f2">
+  <div class="modal-dialog">
+     <div class="modal-content">
+         <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+             <h4 class="modal-title">You are Signed Out</h4>
+         </div>
+         <div class="modal-body">
+           <center>
+             <h4>Click the button below to Sign In</h4>
+            <hr><a href="signin.html">
+            <button class="btn btn-success" onclick="navigate()">Sign-in</button>
+           </center></a>
+            </div>
+         </div>
+      </div>
+  </div>
+<button class="mode" id="darkmode_btn" onclick="darkmode()" style="border-radius:20px;"> Switch to Dark Mode </button>
+<br>
+<br>
+<button id="but" style="display:none; border-radius:20px;" data-toggle="modal" data-target="#f2">d</button>
+<div style="display:none; border-radius:20px;" id="checker">
+<label style="cursor:text; margin-left:1%;" >Change name:</label>
+<input class="passnewconf form-control" placeholder="Enter New Name" style="margin-left:1%; border-radius:20px;" type="text" id="nam" class="form-control" ><br>
+
+<br>
+<button onclick="save()" id="save-changes" class="btn btn-success" style="margin-left:1%; border-radius:20px;">Save Changes</button>
+</div><br>
+<button id="signinButton" style="display:none; border-radius:20px;"  class="btn btn-success" onclick="signin()">Sign Me In</button>
+<button id="signoutButton" style="display:none; border-radius:20px;" class="btn btn-danger" onclick="signmeout()">Sign Me Out</button>
+
+<ul class="navbar navbar-default navbar-fixed-bottom " id="navbar_bottom">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+  <!-- This is Shop -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+  <!-- This is Sell -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+  <!-- This is About Us -->
+  <li class="navbar_list"> <a style="float:right;" class="active" href="settings.html"><i class="fas fa-cog"id="activeicon"></i> Settings </a> </li>
+   <!-- This is Cart -->
+     <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+     </ul>
+
+<table class="foot" style=" margin-top:19.5%;">
+  <tr>
+    <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width: 30%;">
+      
+  <a class="end"href="index.html">  <img src="Elektronik_1.png" class="footitleimg">
+    <h2 class="foottitle">Elektronik </h2>
+
+  </a>
+    </td>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+       <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Purpose </h4>
+       <p style="color: #ffffff; margin-left: 10px; margin-right: 10px"> This website is made to help connect sellers and buyers only. There is no other reason for the making of this website. </p>
+      </td>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+     <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Contact Us </h4>
+     <p style="color: #ffffff; margin-left: 10px; margin-right: 10px;"> If you have any queries you may feel free to contact us at our
+       <a class="end" href="mailto:dagamudith@gmail.com?subject=Query - Elektronik"> Help Desk</a>
+         or call us at <font class="end"> +91 9987677898 </font> </p>
+     </td>
+     <td valign="top" style="border: none; text-align: center; width:10%;">
+       <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Social </h4>
+       <a href="mailto:dagamudith@gmail.com?subject=Social - Elektronik" target="_blank"> <img class="social" src="gmail.png">  </a>
+       <a href="https://discord.gg/dpg8tP7CFk" target="_blank"> <img class="social" src="discord.png">  </a>
+     </td>
+ </tr>
+<tr>
+
+<td>
+
+
+</td>
+</tr><tr><td>
+<br></td></tr>
+</table>
+
+<script>
+
+  //Sign In The User
+  function signin(){
+    window.location = "signin.html";
+  }
+  //Sign Out the User
+  function signmeout(){
+    localStorage.removeItem("SignIn");
+    localStorage.removeItem("ElektronikName");
+    localStorage.removeItem("ElektronikEmail");
+    localStorage.removeItem("ElectronikPerson");
+    window.alert("You have been signed out");
+    document.getElementById("signinButton").style.display = "block";
+    document.getElementById("signoutButton").style.display = "none";
+    document.getElementById("checker").style.display = "none";
+    mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+     if(mymail == "dagamudith@gmail.com"||mymail == "noobe.bot2@gmail.com"){
+       document.getElementById("helpme").style.display = "none";
+     }
+  }
+  //Load the data of user
+  function load(){
+    name = localStorage.getItem("ElektronikName");
+    sign = localStorage.getItem("SignIn");
+    console.log(dark);
+
+    if(name == null||sign == null || sign == "false"){
+      document.getElementById("checker").style.display = "none";
+      document.getElementById("but").click();
+      document.getElementById("signinButton").style.display = "block";
+      document.getElementById("signoutButton").style.display = "none";
+    }else{
+      document.getElementById("checker").style.display = "block";
+      document.getElementById("nam").value = name;
+      document.getElementById("signoutButton").style.display = "block";
+      document.getElementById("signinButton").style.display = "none";
+    }
+    mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+     if(mymail == "dagamudith@gmail.com"||mymail == "noobe.bot2@gmail.com"){
+       document.getElementById("helpme").style.display = "none";
+     }
+     mode = localStorage.getItem("darkmode");
+     if(screen.width<770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style_phone.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle_phone.css";
+ }
+ }else if(screen.width>=770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle.css";
+ }
+ }
+  }
+  //Change the theme/mode
+  function change(){
+    dark = localStorage.getItem("darkmode");
+    if(dark == "False"){
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Light Mode";
+      swapmode("darkstyle.css")
+
+    } else if(dark == "True"){
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Dark Mode";
+      swapmode("style.css")
+    }
+  }
+  change();
+  //Sign In User
+  function navigate(){
+    window.location = "signin.html";
+  }
+  function save(){
+    if(document.getElementById("nam").value == ""||document.getElementById("nam").value == "ㅤ"){
+      window.alert("Cannot save changes.");
+    }else{
+      localStorage.setItem("ElektronikName",document.getElementById("nam").value);
+      window.alert("Changes Saved.")
+    }
+  }
+
+  //Change User Theme/Mode 
+  function darkmode(){
+    dark = localStorage.getItem("darkmode");
+    if(screen.width<770){
+  if(dark=="True"){
+    localStorage.setItem("darkmode", "False");
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Light Mode";
+      document.getElementById("darkmode_btn").style.border = "1px solid #2A0800";
+      document.getElementById("darkmode_btn").style.backgroundColor = "#BEA8A7";
+      document.getElementById("darkmode_btn").style.color = "#2A0800";
+      swapmode("darkstyle_phone.css");
+ }else{
+  localStorage.setItem("darkmode", "True");
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Dark Mode";
+      document.getElementById("darkmode_btn").style.border = "white";
+      document.getElementById("darkmode_btn").style.backgroundColor = "black";
+      document.getElementById("darkmode_btn").style.color = "white";
+      swapmode("style_phone.css");
+ }
+ }else if(screen.width>=770){
+  if(dark=="True"){
+    localStorage.setItem("darkmode", "False");
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Light Mode";
+      document.getElementById("darkmode_btn").style.border = "1px solid #2A0800";
+      document.getElementById("darkmode_btn").style.backgroundColor = "#BEA8A7";
+      document.getElementById("darkmode_btn").style.color = "#2A0800";
+      swapmode("darkstyle.css");
+ }else{
+  localStorage.setItem("darkmode", "True");
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Dark Mode";
+      document.getElementById("darkmode_btn").style.border = "white";
+      document.getElementById("darkmode_btn").style.backgroundColor = "black";
+      document.getElementById("darkmode_btn").style.color = "white";
+      swapmode("style.css");
+ }
+ }
+    /*if(dark == "False"){
+      localStorage.setItem("darkmode", "True");
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Dark Mode";
+      document.getElementById("darkmode_btn").style.border = "white";
+      document.getElementById("darkmode_btn").style.backgroundColor = "black";
+      document.getElementById("darkmode_btn").style.color = "white";
+      swapmode("style.css");
+    } else if(dark == "True"){
+      localStorage.setItem("darkmode", "False");
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Light Mode";
+      document.getElementById("darkmode_btn").style.border = "1px solid #2A0800";
+      document.getElementById("darkmode_btn").style.backgroundColor = "#BEA8A7";
+      document.getElementById("darkmode_btn").style.color = "#2A0800";
+      swapmode("darkstyle.css");
+    } else if(dark == null){
+      localStorage.setItem("darkmode", "True");
+      document.getElementById("darkmode_btn").innerHTML = "Switch to Dark Mode";
+      swapmode("style.css");
+    }*/
+    
+  }
+
+  function swapmode(modes){
+     document.getElementById("darkmodeon").href=modes;
+  }
+</script>
+
+
+
+</body>
+
+</html>
+

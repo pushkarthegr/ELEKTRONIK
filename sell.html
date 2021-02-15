@@ -1,0 +1,420 @@
+<html>
+
+  <head><title>Sell - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+    <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+  
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>  
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/599f35f2d2.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+
+</head>
+
+<body onload="load()" class="body" id="body" style="background-color: #ffebb3;">
+  <div class="modal fade" id="f2">
+    <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title">You are Signed Out</h4>
+           </div>
+           <div class="modal-body">
+             <center>
+               <h4>Click the button below to Sign In</h4>
+              <hr><a href="signin.html">
+              <button class="btn btn-success" onclick="navigate()">Sign-in</button>
+             </center></a>
+              </div>
+           </div>
+        </div>
+    </div><div class="header"> 
+    <table style="width:100%;margin-right:2%;">
+      <tr>
+        <td id="imgthingy"><a id="boss_1" style="float:left;" href="index.html">
+          <img id="logo" src="Elektronik_1.png"></a>
+
+        </td>
+        <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee>
+          <p id="ohbhai">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
+       </marquee>
+       </center>
+        </td>
+     </tr>
+   </table>
+</div>
+  <ul class="navbar navbar-default navbar-fixed-top " id="navbar">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+  <!-- This is Shop -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+  <!-- This is Sell -->
+  <li class="navbar_list"> <a style="float:left;" class="active"  href="sell.html"><i class="fas fa-money-check-alt"id="activeicon"></i> Sell</a> </li>
+  <!-- This is About Us -->
+  <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+     <!-- This is Cart -->
+     <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+     </ul>
+
+
+<center><br><br>
+<button style="display:block;" id="start_capture" onclick="capture()" class="btn">Capture Product</button>
+<!-- Info to tell the user --><i>
+<p id="info1" class="inform-1" style="margin-bottom:30%;">*Once you press the above button, then you will need to capture the image of your product and then fill out the product details. It might take some time for the camera to load, if it doesn't then reload the page.</p>
+</i>
+<button style="display:none;" id="stop_capture" onclick="stop()" class="btn">Stop Capturing</button>
+<button style="display:none;" id="clearstart_capture" onclick="clearImg()" class="btn">Clear Image</button>
+
+<div id="webcam" class="webcam" style="display:none;"></div>
+
+<div id="result"></div>
+
+<button id="capture_final" style="display:none;" onclick="captureMe()" class="btn">Capture Image</button>
+<button id="retake" style="display:none;" onclick="retake()" class="btn">Retake Image</button>
+<!-- After this write:-->
+<br>
+<div style="display:none;" id="info" class="container">
+  <br id="product-type-redirect"><label class="title">Type of Product</label>
+  <br>
+  <select onclick="dropdown()" class="btn btn-dark" id="keys">
+      <option id='default'>Select a Product</option>
+      <option> Television (TV) </option>
+      <option> Laptop </option>
+      <option> Mobile </option>
+      <option> Chromebook (CB) </option>
+      <option> PlayStation (PS) </option>
+    
+    </select><br id="product-condition-redirect"><br><label class="title">Condition of the Product</label><br>
+  <select class="btn btn-dark" id="product-type" onclick="dropdown1()">
+    <option id="default1">Select Product Condition</option>
+    <option value="New" id="naya">New</option>
+    <option value="Refurbished" id="purana">Refurbished</option>
+  </select>
+  <p class="inform-1" id="user-type-info" style="display:none;"><i>*Because you are a consumer, you aren't allowed to change the type of your product. However, if you want to
+    change your user-type, you can sign out and sign in again.
+  </p></i><br>
+  <br>
+      <label class="title">Your Name/Shop Name</label>
+      <!-- User Name -->
+      <input class="form-control" placeholder="name()" type="text" id="name" disabled>
+      <p class="inform-1"><i>*Your name can only be changed at <a href="settings.html" class="not-signed-link">settings.html</a></i></p>
+      <!-- User Email -->
+      <label class="title">Contact Info(Email Id)</label>
+      <input class="form-control" placeholder="name()" type="text" id="emails" disabled>
+      <p class="inform-1"><i>*Your email id cannot be changed </i></p>
+
+      <!-- Product -->
+      <label class="title">Product</label>
+      <input type="text" class="form-control" placeholder="Enter Product Company Name and Model" id="product" oninput="products()">
+      <p style="float:left;" id="product_bold_1" class="word-limit">Characters left before exceeding word limit:&nbsp;</p>
+      <b style="float:left;" id="product_bold" class="word-limit">30</b><br>
+      <br>
+      <!-- Address -->
+      <label class="title">Address</label>
+      <input type="text" class="form-control" placeholder="Enter Your Address Here" id="address" oninput="addres()">
+      <p style="float:left;" id="address_bold_1" class="word-limit">Characters left before exceeding word limit:&nbsp;</p>
+        <b style="float:left;" id="address_bold" class="word-limit">100</b><br>
+        <br>
+      <br>
+      <!-- Price -->
+      <label class="title">Price (₹)</label>
+      <input type="number" class="form-control" placeholder="Enter Your Price" id="price" oninput="paisa()"> 
+     <p style="float:left;" id="price_bold_1" class="word-limit">Characters left before exceeding word limit:&nbsp;</p>
+        <b style="float:left;" id="price_bold" class="word-limit">10</b><br>
+        <br>
+      <!-- Description -->
+      <br><label class="title">Description</label>
+      <textarea class="form-control" placeholder="Enter Product Description" style="resize:none; height:10%;" id="description" oninput="descript()"></textarea>
+      <p style="float:left;" id="description_bold_1" class="word-limit">Characters left before exceeding word limit:&nbsp;</p>
+        <b style="float:left;" id="description_bold" class="word-limit">300</b><br>
+        <br>
+      <br>
+    <br>
+      <!-- Submit Button To Save The Product on Database -->
+  <button onclick="submit()" id="submit" class="btn btn-success">
+  Submit
+  </button>
+</center>
+  </div>
+<br id="break"><br id="break"><br id="break"><br id="break"><br id="break">
+<!-- If user is signed out: -->
+
+
+<button id="but" style="display:none;" data-toggle="modal" data-target="#f2">button</button>
+
+
+<!-- While user signed out:-->
+
+<div class="not-signed" id="not-signed" style="display:none; margin-left:1%; font-size:50px;">
+<p> You cannot access the sell section because you are signed out.<br><a href="signin.html" class="not-signed-link">Please sign in to continue.</a>
+</p></div>
+
+
+
+<ul class="navbar navbar-default navbar-fixed-bottom " id="navbar_bottom">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+  <!-- This is Shop -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+  <!-- This is Sell -->
+  <li class="navbar_list"> <a style="float:left;" class="active"  href="sell.html"><i class="fas fa-money-check-alt"id="activeicon"></i> Sell</a> </li>
+  <!-- This is About Us -->
+  <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+   <!-- This is Cart -->
+     <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+    </ul>
+
+
+<table class="foot">
+  <tr>
+    <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width: 30%;">
+      
+  <a class="end"href="index.html">  <img src="Elektronik_1.png" class="footitleimg">
+    <h2 class="foottitle">Elektronik </h2>
+
+  </a>
+    </td>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+       <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Purpose </h4>
+       <p style="color: #ffffff; margin-left: 10px; margin-right: 10px"> This website is made to help connect sellers and buyers only. There is no other reason for the making of this website. </p>
+      </td>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+     <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Contact Us </h4>
+     <p style="color: #ffffff; margin-left: 10px; margin-right: 10px;"> If you have any queries you may feel free to contact us at our
+       <a class="end" href="mailto:dagamudith@gmail.com?subject=Query - Elektronik"> Help Desk</a>
+         or call us at <font class="end"> +91 9987677898 </font> </p>
+     </td>
+     <td valign="top" style="border: none; text-align: center; width:10%;">
+       <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Social </h4>
+       <a href="mailto:dagamudith@gmail.com?subject=Social - Elektronik" target="_blank"> <img class="social" src="gmail.png">  </a>
+       <a href="https://discord.gg/dpg8tP7CFk" target="_blank"> <img class="social" src="discord.png">  </a>
+     </td>
+ </tr>
+<tr>
+
+<td>
+
+
+</td>
+</tr><tr><td>
+<br></td></tr>
+</table>
+
+<script src="word-limit_sell.js"></script>
+<script>
+  //To save the mode which user decided
+  
+  function dropdown(){
+        document.getElementById("default").style.display = "none";
+    }
+
+  function dropdown1(){
+      document.getElementById("default1").style.display = "none";
+  }
+    function load(){
+        var mode = localStorage.getItem("darkmode");
+        if(screen.width<770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style_phone.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle_phone.css";
+ }
+ }else if(screen.width>=770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle.css";
+ }
+ }
+ mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+     if(mymail == "dagamudith@gmail.com"||mymail == "noobe.bot2@gmail.com"){
+       document.getElementById("helpme").style.display = "none";
+     }
+    }
+  function load(){
+   var mode = localStorage.getItem("darkmode");
+   person = localStorage.getItem("ElectronikPerson");
+   if(person == "consumer"){
+     document.getElementById("product-type").value = document.getElementById("purana").value;
+     document.getElementById("product-type").disabled = true;
+     document.getElementById("product-type").style.cursor = "not-allowed";
+     document.getElementById("user-type-info").style.display = "block";
+   }
+   if(screen.width<770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style_phone.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle_phone.css";
+ }
+ }else if(screen.width>=770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle.css";
+ }
+ }
+ mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+   document.getElementById("emails").value = localStorage.getItem("ElektronikEmail");
+   document.getElementById("name").value = localStorage.getItem("ElektronikName");
+   name = localStorage.getItem("ElektronikName");
+    sign = localStorage.getItem("SignIn");
+
+    if(name == null||sign == null || sign == "false"){
+      document.getElementById("but").click();
+      document.getElementById("start_capture").style.display = "none";
+      document.getElementById("info1").style.display = "none";
+      document.getElementById("not-signed").style.display = "block";
+    }else{
+      document.getElementById("start_capture").style.display = "block";
+      document.getElementById("not-signed").style.display = "none";
+    }
+    mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+  }
+
+  //If user signed out
+  function navigate(){
+    window.location = "signin.html";
+    document.getElementById("start_capture").style.display = "none";
+  }
+  //Taking webcam
+  Webcam.set({
+        width:500,
+        height:400,
+        image_format:'png',
+        png_quality:90
+    });
+    //Database
+    var firebaseConfig = {
+    apiKey: "AIzaSyC7Layb1bhfOcFa8FXeThBkTCQffJBQ8mo",
+    authDomain: "electronik-7fdac.firebaseapp.com",
+    databaseURL: "https://electronik-7fdac-default-rtdb.firebaseio.com",
+    projectId: "electronik-7fdac",
+    storageBucket: "electronik-7fdac.appspot.com",
+    messagingSenderId: "4802312631",
+    appId: "1:4802312631:web:07dedb7d4fc9f743499032"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  function capture(){   
+    document.getElementById("webcam").style.display = "block";
+    document.getElementById("stop_capture").style.display = "block";
+    document.getElementById("start_capture").style.display = "none";
+    document.getElementById("capture_final").style.display = "block";
+    document.getElementById("info1").style.display = "none";
+    document.getElementById("info").style.display = "none";
+    document.getElementById("clearstart_capture").style.display = "none";
+    Webcam.attach(document.getElementById("webcam"));
+  }
+  //Reacapture User Product Image
+  function retake(){
+    document.getElementById("webcam").style.display = "block";
+    document.getElementById("start_capture").style.display = "none";
+    document.getElementById("info1").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("stop_capture").style.display = "block";
+    document.getElementById("retake").style.display = "none";
+    document.getElementById("capture_final").style.display = "block";
+    document.getElementById("info").style.display = "block";
+    document.getElementById("clearstart_capture").style.display = "none";
+    Webcam.attach(document.getElementById("webcam"));
+  }
+  
+  //Clear the Clicked Image
+  function clearImg(){
+    document.getElementById("result").style.display = "none";
+    document.getElementById("start_capture").style.display = "block";
+    document.getElementById("info1").style.display = "block";
+    document.getElementById("stop_capture").style.display = "none";
+    document.getElementById("retake").style.display = "none";
+    document.getElementById("capture_final").style.display = "none";
+    document.getElementById("info").style.display = "none";
+    document.getElementById("clearstart_capture").style.display = "none";
+    Webcam.reset();
+  }
+  //Stop capturing User Product Image
+  function stop(){
+    document.getElementById("webcam").style.display = "none";
+    document.getElementById("start_capture").style.display = "block";
+    document.getElementById("info1").style.display = "block";
+    document.getElementById("stop_capture").style.display = "none";
+    document.getElementById("capture_final").style.display = "none";
+    document.getElementById("clearstart_capture").style.display = "none";
+    Webcam.reset();
+  }
+  //Capture Image
+  function captureMe(){
+    Webcam.snap(function(image){
+        lolism = image;
+        document.getElementById("result").innerHTML = "<img id='resultImage' src="+image+" width='500' height='400'>";
+        document.getElementById("webcam").style.display = "none";
+        document.getElementById("info").style.display = "block";
+        document.getElementById("start_capture").style.display = "none";
+        document.getElementById("capture_final").style.display = "none";
+        document.getElementById("stop_capture").style.display = "none";
+        document.getElementById("retake").style.display = "block";
+        document.getElementById("result").style.display = "block";
+        document.getElementById("clearstart_capture").style.display = "block";
+    });
+    Webcam.reset();
+    }
+    //Submit the Form to Databse
+    function submit(){
+        description = document.getElementById("description").value;
+        price = document.getElementById("price").value;
+        address = document.getElementById("address").value;
+        product = document.getElementById("product").value;
+        key = document.getElementById("keys").value;
+        images = document.getElementById("resultImage").src;
+        mail = localStorage.getItem("ElektronikEmail");
+        names = localStorage.getItem("ElektronikName");
+        condition = document.getElementById("product-type").value;
+        if(product ==""||address==""||price==""||description==""){
+          window.alert("All inputs have not been filled! Please check it again.");
+        }else if(key== "Select a Product"){
+          window.alert("You haven't selected the type of product!");
+          window.location = "#product-type-redirect";
+          document.getElementById("keys").style.border = "3px solid red";
+          document.getElementById("product-type").style.border = "none";
+          
+        }else if(condition == "Select Product Condition"){
+          window.alert("You haven't selected the condition of the product!");
+          window.location = "#product-condition-redirect";
+          document.getElementById("product-type").style.border = "3px solid red";
+          document.getElementById("keys").style.border = "none";
+        }else{
+          firebase.database().ref(document.getElementById("keys").value).push({
+            Image:images,
+            Message:description,
+            Cost:price,
+            Address:address,
+            Product:product,
+            Keys:key,
+            Email:mail,
+            Name:names,
+            Condition:condition
+          });
+          document.getElementById("submit").disabled = true;
+        setTimeout(function(){
+          window.alert("Successfully collected your product details.You will be redirected to home page");
+          window.location = "index.html";
+        },3000);
+    }
+    }
+  </script>
+</body>
+
+</html>

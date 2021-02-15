@@ -1,0 +1,706 @@
+<html>
+
+    <head><title>Shop - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+    
+    
+    
+      <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+    
+      
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <script src="https://smtpjs.com/v3/smtp.js"></script>  
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/599f35f2d2.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <body class="body" id="body" onload = "load()" style="background-color: #ffebb3;">
+      <div class="header"> 
+        <table style="width:100%;margin-right:2%;">
+          <tr>
+            <td id="imgthingy"><a id="boss_1" style="float:left;" href="index.html">
+              <img id="logo" src="Elektronik_1.png"></a>
+    
+            </td>
+            <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee>
+              <p id="ohbhai">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
+           </marquee>
+           </center>
+            </td>
+         </tr>
+       </table>
+    </div>
+
+    <ul class="navbar navbar-default navbar-fixed-top " id="navbar">
+      <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+      <!-- This is Shop -->
+      <li class="navbar_list"> <a style="float:left;" class="active" href="shop.html"><i class="fas fa-store-alt"id="activeicon"></i> Shop</a> </li>
+      <!-- This is Sell -->
+      <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+      <!-- This is About Us -->
+      <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+        <!-- This is Cart -->
+         <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+       
+        </ul>
+        <ul class="navbar navbar-default navbar-fixed-bottom " id="navbar_bottom">
+          <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+          <!-- This is Shop -->
+          <li class="navbar_list"> <a style="float:left;" class="active" href="shop.html"><i class="fas fa-store-alt"id="activeicon"></i> Shop</a> </li>
+          <!-- This is Sell -->
+          <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+          <!-- This is About Us -->
+          <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+           <!-- This is Cart -->
+             <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+         </ul>
+
+    <button id="but" style="display:none;" data-toggle="modal" data-target="#f2">button</button>
+
+
+<!-- While user signed out:-->
+
+<div class="not-signed" id="not-signed" style="display:none; margin-left:1%; font-size:50px;">
+<p> You cannot access the sell section because you are signed out.<br><a href="signin.html" class="not-signed-link">Please sign in to continue.</a>
+</p></div>
+<div id="shopme" style="margin-bottom: 5px;">
+<p class="inform-1" id="inform_reload" style="display:none; margin-left:1%;"><i>*Note: It might take some time to load the page. Please have some patience.</i></p>
+<br>
+
+    <div class="filter_product" id="filter_product">
+    <div style = "float:left;">
+          <label class="filter" style="margin-left:20%;display:none;" id="ranges">Product Filter</label>
+    <select class="btn btn-dark" id="products" style="float:left;display:none;" onchange="change()">
+      <option>All</option>
+      <option>Television (TV)</option>
+      <option>Laptop</option>
+      <option>Mobile</option>
+      <option>Chromebook (CB)</option>
+      <option>PlayStation (PS)</option>
+    
+    </select>
+    </div>
+    <div style = "float:left;">
+      <label class="filter" style="margin-left:45%;display:none;float:left;" id="product">Price Filter</label>
+    <select class="btn btn-dark" id="range" style="float:right; margin-right: 2%;display:none;" onchange="change()">
+      <option class="filter_price">All</option>
+      <option class="filter_price" id="1-5">₹,1000 - ₹4,999</option>
+      <option class="filter_price" id="5-10">₹5,000 - ₹9,999</option>
+      <option class="filter_price" id="10-19">₹10,000 - ₹19,999</option>
+      <option class="filter_price" id="20-39">₹20,000 - ₹39,999</option>
+      <option class="filter_price" id="40+">₹40,000+</option>
+    </select>
+    </div>
+    </div>
+    <br><br><br><br><br>
+    <center>
+      <p style="font-size:25px;font-weight:900;display:none;" id="le">It seems empty over here. You can put one on <a href="sell.html" class="sale">sale</a>.</p>
+    </center>
+    <div id="tv"></div>
+  
+    <center>
+      <p style="color:black;font-size: 20px; display:none; margin-bottom:15%;" id="resultss">No results.</p>
+    </center>
+  </div>
+  <br><br><br><br><br><br><br><Br><br><br>
+    <table class="foot" id="footer"style="margin-top:16px;">
+      <tr>
+        <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width: 30%;">
+          
+      <a class="end"href="index.html">  <img src="Elektronik_1.png" class="footitleimg">
+        <h2 class="foottitle">Elektronik </h2>
+  
+      </a>
+        </td>
+          <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+           <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Purpose </h4>
+           <p style="color: #ffffff; margin-left: 10px; margin-right: 10px"> This website is made to help connect sellers and buyers only. There is no other reason for the making of this website. </p>
+          </td>
+          <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+         <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Contact Us </h4>
+         <p style="color: #ffffff; margin-left: 10px; margin-right: 10px;"> If you have any queries you may feel free to contact us at our
+           <a class="end" href="mailto:dagamudith@gmail.com?subject=Query - Elektronik"> Help Desk</a>
+             or call us at <font class="end"> +91 9987677898 </font> </p>
+         </td>
+         <td valign="top" style="border: none; text-align: center; width:10%;">
+           <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Social </h4>
+           <a href="mailto:dagamudith@gmail.com?subject=Social - Elektronik" target="_blank"> <img class="social" src="gmail.png">  </a>
+           <a href="https://discord.gg/dpg8tP7CFk" target="_blank"> <img class="social" src="discord.png">  </a>
+         </td>
+     </tr>
+   <tr>
+  
+  <td>
+  
+  
+  </td>
+  </tr><tr><td>
+    <br></td></tr>
+    </table>
+
+    <script>
+        var firebaseConfig = {
+        apiKey: "AIzaSyC7Layb1bhfOcFa8FXeThBkTCQffJBQ8mo",
+    
+        databaseURL: "https://electronik-7fdac-default-rtdb.firebaseio.com",
+        projectId: "electronik-7fdac",
+        storageBucket: "electronik-7fdac.appspot.com",
+        messagingSenderId: "4802312631",
+        appId: "1:4802312631:web:07dedb7d4fc9f743499032"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+        function load(){
+            var mode = localStorage.getItem("darkmode");
+            if(screen.width<770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style_phone.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle_phone.css";
+ }
+ }else if(screen.width>=770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle.css";
+ }
+ }
+ mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+            name = localStorage.getItem("ElektronikName");
+            sign = localStorage.getItem("SignIn");
+            if(name == null||sign == null || sign == "false"){
+                  document.getElementById("but").click();
+                  document.getElementById("not-signed").style.display = "block";
+                  document.getElementById("filter_product").style.display = "none";
+                  document.getElementById("shopme").style.display = "none";
+           }else{
+                   document.getElementById("not-signed").style.display = "none";
+                  document.getElementById("filter_product").style.display = "block";
+                  document.getElementById("shopme").style.display = "block";
+          }
+
+            
+
+          /*if(document.getElementById("tv_main").innerHTML == ""){
+            document.getElementById("inform_reload").style.display = "block";
+            document.getElementById("resultss").style.display = "none";
+          }else{
+            document.getElementById("inform_reload").style.display = "none";
+          }*/
+            loadTelevision();
+            loadCB();
+            loadMobile();
+            loadPS();
+            loadLaptop();
+            setTimeout(function(){
+              sure();
+            },2000);
+            setTimeout(function(){
+              sure();
+              if(document.getElementById("tv").innerHTML == ""){
+                document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("le").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+              }
+            },4000);
+            setTimeout(function(){
+              sure();
+              if(document.getElementById("tv").innerHTML == ""){
+                document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("le").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+              }
+            },6000);
+            setTimeout(function(){
+              sure();
+              if(document.getElementById("tv").innerHTML == ""){
+                document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("le").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+              }
+            },8000);
+            setTimeout(function(){
+              sure();
+              if(document.getElementById("tv").innerHTML == ""){
+                document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("le").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+              }
+            },10000);
+            setTimeout(function(){
+              sure();
+              if(document.getElementById("tv").innerHTML == ""){
+                document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("le").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+              }
+            },12000);
+            setTimeout(function(){
+              sure();
+              if(document.getElementById("tv").innerHTML == ""){
+                document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("le").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+              }
+            },14000);
+
+            mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+        }
+        function sure(){
+          if(document.getElementById("tv").innerHTML == ""){
+            document.getElementById("products").style.display = "none";
+              document.getElementById("range").style.display = "none";
+              document.getElementById("product").style.display = "none";
+              document.getElementById("ranges").style.display = "none";
+              document.getElementById("inform_reload").style.display = "block";
+              
+          }else{
+            document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+          }
+          if(document.getElementById("tv").innerHTML == ""&&document.getElementById("resultss").style.display == "block"){
+            document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+          }
+        }
+        
+        function change(){
+          if(document.getElementById("products").value == "All"){
+            document.getElementById("tv").innerHTML = "";
+            loadTelevision();
+            loadCB();
+            loadMobile();
+            loadPS();
+            loadLaptop();
+            if(document.getElementById("tv").innerHTML == ""){
+            document.getElementById("resultss").style.display = "block";
+            }else{
+              document.getElementById("resultss").style.display = "none";
+            }
+          }else if(document.getElementById("products").value == "Television (TV)"){
+            document.getElementById("tv").innerHTML = "";
+            loadTelevision();
+            if(document.getElementById("tv").innerHTML == ""){
+            document.getElementById("resultss").style.display = "block";
+            }else{
+              document.getElementById("resultss").style.display = "none";
+            }
+          }else if(document.getElementById("products").value == "Laptop"){
+            document.getElementById("tv").innerHTML = "";
+            loadLaptop();
+            if(document.getElementById("tv").innerHTML == ""){
+            document.getElementById("resultss").style.display = "block";
+            }else{
+              document.getElementById("resultss").style.display = "none";
+            }
+          }else if(document.getElementById("products").value == "Mobile"){
+            document.getElementById("tv").innerHTML = "";
+            loadMobile();
+            if(document.getElementById("tv").innerHTML == ""){
+            document.getElementById("resultss").style.display = "block";
+            }else{
+              document.getElementById("resultss").style.display = "none";
+            }
+          }else if(document.getElementById("products").value == "Chromebook (CB)"){
+            document.getElementById("tv").innerHTML = "";
+            loadCB();
+            if(document.getElementById("tv").innerHTML == ""){
+            document.getElementById("resultss").style.display = "block";
+            }else{
+              document.getElementById("resultss").style.display = "none";
+            }
+          }else if(document.getElementById("products").value == "PlayStation (PS)"){
+            document.getElementById("tv").innerHTML = "";
+            loadPS();
+            if(document.getElementById("tv").innerHTML == ""){
+            document.getElementById("resultss").style.display = "block";
+            }else{
+              document.getElementById("resultss").style.display = "none";
+            }
+          }
+        }
+    
+    
+        function loadTelevision(){
+            firebase.database().ref("/" + "Television (TV)").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                        childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        cost = Number(values["Cost"]);
+                        condition = values["Condition"];
+                        key = values["Keys"];
+                        product = values["Product"];
+    
+                        if(document.getElementById("range").value == "₹,1000 - ₹4,999"&&cost<=4999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3>"+condition+"</h3>";
+              
+                            buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+    
+                        }else if(document.getElementById("range").value == "₹5,000 - ₹9,999"&&cost>=5000&&cost<=9999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹10,000 - ₹19,999"&&cost>=10000&&cost<=19999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹20,000 - ₹39,999"&&cost>=20000&&cost<=39999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹40,000+"&&cost>=40000){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }else if(document.getElementById("range").value == "All"){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }
+                });
+          });
+        }
+    
+    
+    
+        function loadLaptop(){
+            firebase.database().ref("/" + "Laptop").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        cost = Number(values["Cost"]);
+                        condition = values["Condition"];
+                        key = values["Keys"];
+                        product = values["Product"];
+    
+                        if(document.getElementById("range").value == "₹,1000 - ₹4,999"&&cost<=4999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+    
+                        }else if(document.getElementById("range").value == "₹5,000 - ₹9,999"&&cost>=5000&&cost<=9999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹10,000 - ₹19,999"&&cost>=10000&&cost<=19999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹20,000 - ₹39,999"&&cost>=20000&&cost<=39999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹40,000+"&&cost>=40000){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }else if(document.getElementById("range").value == "All"){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }
+                });
+          });
+        }
+    
+    
+    
+        function loadMobile(){
+            firebase.database().ref("/" + "Mobile").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                       childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        cost = Number(values["Cost"]);
+                        condition = values["Condition"];
+                        key = values["Keys"];
+                        product = values["Product"];
+    
+                        if(document.getElementById("range").value == "₹,1000 - ₹4,999"&&cost<=4999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+    
+                        }else if(document.getElementById("range").value == "₹5,000 - ₹9,999"&&cost>=5000&&cost<=9999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹10,000 - ₹19,999"&&cost>=10000&&cost<=19999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹20,000 - ₹39,999"&&cost>=20000&&cost<=39999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹40,000+"&&cost>=40000){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }else if(document.getElementById("range").value == "All"){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }
+                });
+          });
+        }
+    
+    
+    
+        function loadCB(){
+            firebase.database().ref("/" + "Chromebook (CB)").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        cost = Number(values["Cost"]);
+                        condition = values["Condition"];
+                        key = values["Keys"];
+                        product = values["Product"];
+    
+                        if(document.getElementById("range").value == "₹,1000 - ₹4,999"&&cost<=4999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+    
+                        }else if(document.getElementById("range").value == "₹5,000 - ₹9,999"&&cost>=5000&&cost<=9999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹10,000 - ₹19,999"&&cost>=10000&&cost<=19999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹20,000 - ₹39,999"&&cost>=20000&&cost<=39999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹40,000+"&&cost>=40000){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }else if(document.getElementById("range").value == "All"){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }
+                        });
+          });
+        }
+    
+    
+    
+        function loadPS(){
+            firebase.database().ref("/" + "PlayStation (PS)").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        cost = Number(values["Cost"]);
+                        condition = values["Condition"];
+                        key = values["Keys"];
+                        product = values["Product"];
+                        console.log(key);
+    
+                        if(document.getElementById("range").value == "₹,1000 - ₹4,999"&&cost<=4999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+    
+                        }else if(document.getElementById("range").value == "₹5,000 - ₹9,999"&&cost>=5000&&cost<=9999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹10,000 - ₹19,999"&&cost>=10000&&cost<=19999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹20,000 - ₹39,999"&&cost>=20000&&cost<=39999){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        
+                        }else if(document.getElementById("range").value == "₹40,000+"&&cost>=40000){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }else if(document.getElementById("range").value == "All"){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3><br>"+condition+"</h3>";
+              
+                           buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
+                          document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
+                        }
+                        });
+          });
+        }
+    
+    
+    
+        function next(myid,myvalue){
+          console.log(myid);
+          console.log(myvalue);
+    
+          localStorage.setItem("myids",myid);
+          localStorage.setItem("myvalues",myvalue);
+          window.location = "more.html";
+        }
+    
+    </script>
+    
+    </body>
+    
+    </html>

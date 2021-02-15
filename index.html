@@ -1,0 +1,204 @@
+<html>
+<!-- FIrebase Link: https://console.firebase.google.com/u/1/project/electronik-7fdac/overview -->
+<head><title>Home - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+
+<!-- Importing CSS-->
+
+  <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/599f35f2d2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="load()" class="body" id="body">
+  
+<div class="header"> 
+    <table style="width:100%;margin-right:2%;">
+      <tr>
+        <td id="imgthingy"><a id="boss_1" style="float:left;" href="index.html">
+          <img id="logo" src="Elektronik_1.png"></a>
+
+        </td>
+        <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee>
+          <p id="ohbhai">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
+       </marquee>
+       </center>
+        </td>
+     </tr>
+   </table>
+</div>
+<ul class="navbar navbar-default navbar-fixed-top " id="navbar">
+   
+  <li class="navbar_list_1"> <a class="active" style="float:left;" href="index.html"><i class="fas fa-home" id="activeicon"></i> Home</a></li>
+  <!-- This is Shop -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+  <!-- This is Sell -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+  <!-- This is About Us -->
+  <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+   <!-- This is Cart -->
+     <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+    </ul>
+</a>
+<br id="break"><br id="break"><br id="break">
+<br id="break"><br id="break"><br id="break">
+  <!-- Carousel Which Tells About Our Website -->
+<div>
+  <div id="mycarousel" class="carousel slide" data-interval="4000" style="width:100%;">
+    <div class="carousel-inner">
+        <div class="item active">
+            <center>
+                <img src="https://cdn.mos.cms.futurecdn.net/vEcELHdn998wRTcCzqV5m9.jpg" width="500" height="300" style="margin-top:10px;">
+                <div class="carousel-content">
+                    <p style="font-size:20px;color:white;">Connect to online retailers.</p>
+                </div>
+            </center>
+        </div>
+  
+         <div class="item">
+            <center>
+                <img src="https://www.wallpapertip.com/wmimgs/185-1853664_best-camera-phone-best-camera-phone-2019.jpg" width="500" height="300" style="margin-top:10px;">
+                <div class="carousel-content">
+                    <p style="font-size:20px;color:white;">Sell electronics online.</p>
+                </div>
+            </center>
+        </div>
+
+        <div class="item">
+          <center>
+              <img src="tv.jpg" width="500" height="300" style="margin-top:10px;">
+              <div class="carousel-content">
+                  <p style="font-size:20px;color:white;">Get electronics in proper prices.</p>
+              </div>
+          </center>
+      </div>
+    </div>
+    <a href="#mycarousel" class="left carousel-control" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a href="#mycarousel" class="right carousel-control" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+</div>
+<!-- Information About Our Website -->
+<p class="content"> 
+    On this website you will get all electronic products for your required need. All deals done over here will be secured and there will be no harm
+    to you or your device. To know how to go through this website you can visit our "<a href="help.html"></a>Help" section. We would like to server our best to you. 
+  
+  </p><div class="main">
+<h1 class="features">Features and Simple Walkthrough:</h1>
+<ol class="process">
+  <li>You first need to go to <button id="link" onclick="settings()">settings</button> if you have signed out or haven't signed in.</li>
+  <li>Then, you can either <button id="link" onclick="sell()">sell</button>/<button id="link" onclick="buy()">buy</button> a product.</li>
+  <li>Lastly, if you want to see the products you have put on sell then go to the <button id="link" onclick="products()">my products</button> section.</li>
+  </ol>
+</div>
+<br><br><br>  <ul class="navbar navbar-default navbar-fixed-bottom " id="navbar_bottom">
+    <li class="navbar_list_1"> <a class="active" style="float:left;" href="index.html"><i class="fas fa-home" id="activeicon"></i> Home</a></li>
+    <!-- This is Shop -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+    <!-- This is Sell -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+    <!-- This is About Us -->
+    <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+     <!-- This is Cart -->
+       <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+        </ul>
+
+  <table class="foot">
+    <tr>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width: 30%;">
+        
+    <a class="end"href="index.html">  <img src="Elektronik_1.png" class="footitleimg">
+      <h2 class="foottitle">Elektronik </h2>
+
+    </a>
+      </td>
+        <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+         <h4 style="color: black; margin-left: 10px; margin-right: 10px"> Purpose </h4>
+         <p style="color: #ffffff; margin-left: 10px; margin-right: 10px"> This website is made to help connect sellers and buyers only. There is no other reason for the making of this website. </p>
+        </td>
+        <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+       <h4 style="color: black; margin-left: 10px; margin-right: 10px"> Contact Us </h4>
+       <p style="color: #ffffff; margin-left: 10px; margin-right: 10px;"> If you have any queries you may feel free to contact us at our
+         <a class="end" href="mailto:dagamudith@gmail.com?subject=Query - Elektronik"> Help Desk</a>
+           or call us at <font class="end"> +91 9987677898 </font> </p>
+       </td>
+       <td valign="top" style="border: none; text-align: center; width:10%;">
+         <h4 style="color: black; margin-left: 10px; margin-right: 10px"> Social </h4>
+         <a href="mailto:dagamudith@gmail.com?subject=Social - Elektronik" target="_blank"> <img class="social" src="gmail.png">  </a>
+         <a href="https://discord.gg/dpg8tP7CFk" target="_blank"> <img class="social" src="discord.png">  </a>
+       </td>
+   </tr>
+ <tr>
+
+<td>
+
+
+</td>
+</tr><tr><td>
+  <br></td></tr>
+  </table>
+  
+<script>
+//To load the mode selected by user
+
+function settings(){
+  window.location = "settings.html";
+}
+function buy(){
+  window.location = "shop.html";
+}
+function sell(){
+  window.location = "sell.html";
+}
+function products(){
+  window.location = "cart.html";
+}
+
+function load(){
+ var mode = localStorage.getItem("darkmode");
+ if(screen.width<770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style_phone.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle_phone.css";
+ }
+ }else if(screen.width>=770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle.css";
+ }
+ }
+ mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+     if(mymail == "dagamudith@gmail.com"||mymail == "noobe.bot2@gmail.com"){
+       document.getElementById("helpme").style.display = "none";
+     }
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

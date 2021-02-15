@@ -1,0 +1,354 @@
+<html>
+
+<head><title>My Products - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  
+
+  <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/599f35f2d2.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="load()" class="body" id="body" style="background-color: #ffebb3;" style="float:left;">
+  <div class="header"> 
+    <table style="width:100%;margin-right:2%;">
+      <tr>
+        <td id="imgthingy"><a id="boss_1" style="float:left;" href="index.html">
+          <img id="logo" src="Elektronik_1.png"></a>
+
+        </td>
+        <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee>
+          <p id="ohbhai">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
+       </marquee>
+       </center>
+        </td>
+     </tr>
+   </table>
+</div>
+  <ul class="navbar navbar-default navbar-fixed-top " id="navbar">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+  <!-- This is Shop -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+  <!-- This is Sell -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+  <!-- This is About Us -->
+  <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+    <!-- This is Cart -->
+     <li class="navbar_list"> <a style="float:right;" class="active" href="cart.html"><i class="fas fa-box"id="activeicon"></i> My Products </a> </li>
+  </ul>
+  <div class="not-signed" id="not-signed" style="display:none; margin-left:1%; font-size:50px;">
+    <p> You cannot access the my product section because you are signed out.<br><a href="signin.html" class="not-signed-link">Please sign in to continue.</a>
+    </p></div>
+  <br>
+  <br><br>
+  <div id="myp" style="margin-bottom: 15%;">
+    <center>
+      <p style="font-size:25px;font-weight:900;display:none;" id="le">There are no products. Go and put one on <a href="sell.html" class="sale">sale</a> now!</p>
+    </center>
+   <div id="MyProduct"></div>
+</div>
+
+   <ul class="navbar navbar-default navbar-fixed-bottom " id="navbar_bottom">
+    <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+    <!-- This is Shop -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+    <!-- This is Sell -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+    <!-- This is About Us -->
+    <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+     <!-- This is Cart -->
+       <li class="navbar_list"> <a style="float:right;" class="active" href="cart.html"><i class="fas fa-box"id="activeicon"></i> My Products </a> </li>
+       </ul>
+   <table class="foot">
+    <tr>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width: 30%;">
+        
+    <a class="end"href="index.html">  <img src="Elektronik_1.png" class="footitleimg">
+      <h2 class="foottitle">Elektronik </h2>
+  
+    </a>
+      </td>
+        <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+         <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Purpose </h4>
+         <p style="color: #ffffff; margin-left: 10px; margin-right: 10px"> This website is made to help connect sellers and buyers only. There is no other reason for the making of this website. </p>
+        </td>
+        <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+       <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Contact Us </h4>
+       <p style="color: #ffffff; margin-left: 10px; margin-right: 10px;"> If you have any queries you may feel free to contact us at our
+         <a class="end" href="mailto:dagamudith@gmail.com?subject=Query - Elektronik"> Help Desk</a>
+           or call us at <font class="end"> +91 9987677898 </font> </p>
+       </td>
+       <td valign="top" style="border: none; text-align: center; width:10%;">
+         <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Social </h4>
+         <a href="mailto:dagamudith@gmail.com?subject=Social - Elektronik" target="_blank"> <img class="social" src="gmail.png">  </a>
+         <a href="https://discord.gg/dpg8tP7CFk" target="_blank"> <img class="social" src="discord.png">  </a>
+       </td>
+   </tr>
+  <tr>
+  
+  <td>
+  
+  
+  </td>
+  </tr><tr><td>
+  <br></td></tr>
+  </table>
+  <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyC7Layb1bhfOcFa8FXeThBkTCQffJBQ8mo",
+    
+        databaseURL: "https://electronik-7fdac-default-rtdb.firebaseio.com",
+        projectId: "electronik-7fdac",
+        storageBucket: "electronik-7fdac.appspot.com",
+        messagingSenderId: "4802312631",
+        appId: "1:4802312631:web:07dedb7d4fc9f743499032"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+    function load(){
+     var mode = localStorage.getItem("darkmode");
+     if(screen.width<770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style_phone.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle_phone.css";
+ }
+ }else if(screen.width>=770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle.css";
+ }
+ }
+ mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+     name = localStorage.getItem("ElektronikName");
+            sign = localStorage.getItem("SignIn");
+            if(name == null||sign == null || sign == "false"){
+                 
+                  document.getElementById("MyProduct").style.display = "none";
+                  document.getElementById("not-signed").style.display = "block";
+                  document.getElementById("myp").style.display = "none";
+           }else{
+            document.getElementById("MyProduct").style.display = "block";
+                   document.getElementById("not-signed").style.display = "none";
+                   document.getElementById("myp").style.display = "block";
+          }
+          telivision();
+    laptop();
+    ps();
+    cb();
+    mobile();
+    if(document.getElementById("MyProduct").innerHTML==""){
+        document.getElementById("le").style.display = "block";
+       }else{
+         document.getElementById("le").style.display = "none";
+       }
+    }
+    function telivision(){
+      firebase.database().ref("/" + "Television (TV)").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                        childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        message = values["Message"];
+                        cost = values["Cost"];
+                        address = values["Address"];
+                        product = values["Product"];
+                         mail = values["Email"];
+                        names = values["Name"];
+                        condition = values["Condition"];
+                        key = values["Keys"];
+    
+                        if(mail == localStorage.getItem("ElektronikEmail")){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3>"+condition+"</h3>";
+                          buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' class='btn btn-success'>Read-more</button>";
+                          button = "<br><br><button id="+values_main+" value="+key+" onclick='remove(this.id,this.value)' class='btn btn-danger'>Remove</button>"
+                          document.getElementById("MyProduct").innerHTML = document.getElementById("MyProduct").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+button+"<br><br></div>";
+                        }  
+                });
+          });
+    }
+    function laptop(){
+      firebase.database().ref("/" + "Laptop").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                        childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        message = values["Message"];
+                        cost = values["Cost"];
+                        address = values["Address"];
+                        product = values["Product"];
+                         mail = values["Email"];
+                        names = values["Name"];
+                        condition = values["Condition"];
+                        key = values["Keys"];
+    
+                        if(mail == localStorage.getItem("ElektronikEmail")){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3>"+condition+"</h3>";
+                          buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' class='btn btn-success'>Read-more</button>";
+                          button = "<br><br><button id="+values_main+" value="+key+" onclick='remove(this.id,this.value)' class='btn btn-danger'>Remove</button>"
+                          document.getElementById("MyProduct").innerHTML = document.getElementById("MyProduct").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+button+"<br><br></div>";
+                        }
+        
+                });
+          });
+    }
+    function ps(){
+      firebase.database().ref("/" + "PlayStation (PS)").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                        childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        message = values["Message"];
+                        cost = values["Cost"];
+                        address = values["Address"];
+                        product = values["Product"];
+                         mail = values["Email"];
+                        names = values["Name"];
+                        key = values["Keys"];
+                        condition = values["Condition"];
+    
+                        if(mail == localStorage.getItem("ElektronikEmail")){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3>"+condition+"</h3>";
+                          buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' class='btn btn-success'>Read-more</button>";
+                          button = "<br><br><button id="+values_main+" value="+key+" onclick='remove(this.id,this.value)' class='btn btn-danger'>Remove</button>"
+                          document.getElementById("MyProduct").innerHTML = document.getElementById("MyProduct").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+button+"<br><br></div>";
+                        }
+            
+                });
+          });
+    }
+    function mobile(){
+      firebase.database().ref("/" + "Mobile").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                        childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        message = values["Message"];
+                        cost = values["Cost"];
+                        address = values["Address"];
+                        product = values["Product"];
+                         mail = values["Email"];
+                        names = values["Name"];
+                        key = values["Keys"];
+                        condition = values["Condition"];
+    
+                        if(mail == localStorage.getItem("ElektronikEmail")){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3>"+condition+"</h3>";
+                          buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' class='btn btn-success'>Read-more</button>";
+                          button = "<br><br><button id="+values_main+" value="+key+" onclick='remove(this.id,this.value)' class='btn btn-danger'>Remove</button>"
+                          document.getElementById("MyProduct").innerHTML = document.getElementById("MyProduct").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+button+"<br><br></div>";
+                        }
+                        if(document.getElementById("MyProduct").innerHTML==""){
+        document.getElementById("le").style.display = "block";
+       }else{
+         document.getElementById("le").style.display = "none";
+       }
+
+                       
+                });
+          });
+    }
+    function cb(){
+      firebase.database().ref("/" + "Chromebook (CB)").on('value', function (snapshot) {
+              snapshot.forEach(function (childSnapshot) {
+                        childKey = childSnapshot.key; 
+                        values_main = childKey;
+                        values = childSnapshot.val();
+    
+                        img = values["Image"];
+                        message = values["Message"];
+                        cost = values["Cost"];
+                        address = values["Address"];
+                        product = values["Product"];
+                         mail = values["Email"];
+                        names = values["Name"];
+                        condition = values["Condition"];
+                        key = values["Keys"];
+                        console.log(mail);
+    
+                        if(mail == localStorage.getItem("ElektronikEmail")){
+                          img1 = "<img src="+img+" style='width:80%;'>";
+                          money = "<h4>₹"+cost+"</h4>";
+                          condi = "<h3>"+condition+"</h3>";
+                          buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' class='btn btn-success'>Read-more</button>";
+                          button = "<br><br><button id="+values_main+" value="+key+" onclick='remove(this.id,this.value)' class='btn btn-danger'>Remove</button>"
+                          document.getElementById("MyProduct").innerHTML = document.getElementById("MyProduct").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+button+"<br><br></div>";
+                        }
+                        if(document.getElementById("MyProduct").innerHTML==""){
+        document.getElementById("le").style.display = "block";
+       }else{
+         document.getElementById("le").style.display = "none";
+       }
+
+                       
+                });
+          });
+    }
+  
+    function next(myid,myvalue){
+          console.log(myid);
+          console.log(myvalue);
+    
+          localStorage.setItem("myids",myid);
+          localStorage.setItem("myvalues",myvalue);
+          window.location = "more.html";
+        }
+        function remove(myid,myvalue){
+          if(myvalue == "Television"){
+            firebase.database().ref("Television (TV)"+"/"+myid).remove();
+          }else if(myvalue == "Mobile"){
+            firebase.database().ref("Mobile"+"/"+myid).remove();
+          }else if(myvalue == "Laptop"){
+            firebase.database().ref("Laptop"+"/"+myid).remove();
+          }else if(myvalue == "PlayStation"){
+            firebase.database().ref("PlayStation (PS)"+"/"+myid).remove();
+          }else if(myvalue == "Chromebook"){
+            firebase.database().ref("Chromebook (CB)"+"/"+myid).remove();
+          }
+          console.log(myvalue+"/"+myid);
+          document.getElementById("MyProduct").innerHTML = "";
+          telivision();
+          laptop();
+          ps();
+          cb();
+          mobile();
+        }
+  
+    </script>
+
+</body>
+
+</html>
+

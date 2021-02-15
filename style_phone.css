@@ -1,0 +1,739 @@
+#navbar{
+  display: table;
+  list-style: none;
+  overflow: hidden;
+  position: sticky;
+  display:none;
+  width: 100%;
+  background-color: #2A0800 !important;
+  border-radius: 0px !important;
+}
+#navbar_bottom{
+  display: table;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  font-size:20px;
+  background-color: #2A0800 !important;
+  border-radius: 0px !important;
+}
+
+#mycarousel{
+  background-color: #50362e !important;
+  width: 100%;
+}
+.navbar_list{
+  display: table-cell;
+  vertical-align: middle;
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.navbar_list_1{
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+
+li a{
+  text-decoration: none;
+  color: #BEA8A7 !important;
+  border: 1px solid #2A0800 !important;
+  padding: 9px 13px ;
+}
+
+li a:hover{
+  border: 1px solid #C09891 !important;
+  padding: 9px 13px;
+  text-decoration: none;
+}
+
+li a.active{
+  background-color: #775144 !important;
+  color: #F4DBD8 !important;
+}
+
+#activeicon{
+  color: #F4DBD8 !important;
+}
+
+#unactiveicon{
+  color: #BEA8A7 !important;
+}
+
+#unactive{
+  color: #BEA8A7 !important;
+}
+
+input:focus{
+  border: 1px solid #F4DBD8 !important;
+}
+
+
+input{
+  border: 1px solid #2A0800 !important;
+ 
+}
+
+textarea{
+  border: 1px solid #2A0800 !important;
+}
+
+body{
+  
+  margin: 0px;
+}
+
+.title:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+.title1{
+  top:0;
+  position: relative;
+  margin-left: 10px;
+}
+.title2{
+  top:0;
+  position: relative;
+  margin-left: 10px;
+}
+.tech:hover{
+border: 2px dotted #2A0800 !important;
+transition: 0.3s;
+}
+.tech{
+border: 1px dotted #F4DBD8 !important;
+float: left;
+height: 5%;
+margin-left: 5px;
+margin-right:1%;
+}
+
+
+.head1{
+background-color:  white !important;
+color: maroon !important;
+height:5%;
+width:88.5%;
+border: 1px solid maroon !important;
+text-shadow: 4px 2px 5px red !important;
+margin-right: 2px;
+margin-top:0px;
+margin-left: 11%;
+}
+
+.head1:hover{
+  background-color: maroon !important;
+  color: white !important;
+  border: 1px solid white !important;
+}
+
+
+
+.foot{
+background-color: #775144;
+border-top: 6px solid #2A0800;
+width: 100%;
+bottom:0;
+left:0;
+height:20%;
+display:none;
+}
+
+.sale{
+  color: blue;
+}
+
+.sale:hover{
+  color: aqua;
+}
+
+.end{
+color:#2A0800;
+}
+/* Footer Start */
+.end:hover{
+color:#C09891;
+}
+
+.foottitle{
+margin-top: 36px;
+cursor: pointer;
+}
+.footitleimg{
+ cursor: pointer;
+  float: left;
+  margin-top: 10px;
+  margin-left:1%;
+  height: 39.5%;
+  border: 1px solid #2A0800;
+}
+
+
+
+img.social{
+width: 35px;
+float: left;
+margin-left: 10px;
+border: 2px dotted #775144;
+}
+
+img.social:hover{
+border: 2px dotted #2A0800;
+cursor: pointer;
+}
+
+/* Footer End */
+
+
+.homereturn:hover{
+text-decoration: none;
+color: blue !important;
+}
+
+.content{
+margin-right: 15%;
+margin-top: 1%;
+margin-bottom:7%;
+margin-left: 15%;
+color: #2A0800 !important;
+font-weight: bold;
+font-family: 'Comfortaa', cursive;
+font-size: 30px;
+}
+
+.active{
+color: #2A0800;
+}
+
+.help_content{
+margin-left: 1%;
+font-size: 18px;
+margin-top: 1%;
+}
+
+.check{
+margin-left: 1%; 
+}
+
+.check1{
+margin-left: 1%;
+margin-right: 50%;
+font-size: 16px;
+}
+
+.learn{
+color: rgb(34, 139, 34);
+}
+
+.learn:hover{
+color: yellow;
+}
+
+
+
+/* Slider Starts From Here */
+
+.switch {
+position: relative;
+display: inline-block;
+width: 60px;
+height: 34px;
+margin-left: 1%;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+/* The slider */
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 26px;
+width: 26px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: #000000;
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #000000;
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(26px);
+-ms-transform: translateX(26px);
+transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+
+.mode{
+margin-left: 1%;
+font-size: 16px;
+color: white;
+background-color: black;
+border: 2px solid black;
+}
+
+.setting_content{
+margin-left: 1%;
+font-size: 16px;
+}
+
+.setting_signin{
+margin-left: 1% !important;
+font-size: 16px !important;
+}
+
+.setting_signin:hover{
+text-decoration: none !important;
+}
+.pass{
+width: 25% !important;
+padding: 8px 8px !important;
+}
+
+.passnewconf{
+width: 25% !important;
+padding: 8px 8px !important;
+}
+
+.contact{
+width: 5% !important;
+border: 1px solid #ffeb3f !important;
+padding: 2px 2px !important;
+}
+
+.contact:hover{
+transition: 1.3s !important;
+border: 1px solid red !important;
+}
+
+.body{
+background-color: #BEA8A7 !important;
+}
+
+
+#start_capture{
+border: 3px solid #2A0800;
+width: 10%;
+padding: 12px 16px;
+margin-bottom: 2%;
+color: #F4DBD8;
+background-color: #2A0800;
+margin-left: 2%;
+}
+
+#start_capture:hover{
+border: 3px solid #F4DBD8;
+}
+
+#stop_capture{
+border: 3px solid #2A0800;
+width: 10%;
+padding: 12px 16px;
+margin-bottom: 2%;
+color: #F4DBD8;
+background-color: #2A0800;
+margin-left: 2%;
+}
+
+#stop_capture:hover{
+border: 3px solid #F4DBD8;
+}
+
+div.webcam{
+margin-left: 2%;
+}
+
+#result{
+margin-left: 2%;
+margin-bottom: 1%;
+}
+
+#capture_final:hover{
+border: 3px solid #F4DBD8;
+}
+
+#capture_final{
+border: 3px solid #2A0800;
+width: 10%;
+padding: 12px 16px;
+margin-bottom: 2%;
+color: #F4DBD8;
+background-color: #2A0800;
+margin-left: 2%;
+}
+
+#retake:hover{
+border: 3px solid #F4DBD8;
+}
+
+#retake{
+border: 3px solid #2A0800;
+width: 10%;
+padding: 12px 16px;
+margin-bottom: 2%;
+color: #F4DBD8;
+background-color: #2A0800;
+margin-left: 2%;
+}
+
+#clearstart_capture:hover{
+border: 3px solid #F4DBD8;
+}
+
+#clearstart_capture{
+border: 3px solid #2A0800;
+width: 10%;
+padding: 12px 16px;
+margin-bottom: 2%;
+color: #F4DBD8;
+background-color: #2A0800;
+margin-left: 2%;
+}
+
+#submit{
+width: 10%;
+margin: 2%;
+}
+
+/* Selection option of seller or shopkeeper */
+
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color: #eee;
+border-radius: 50%;
+}
+
+
+
+.radios {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radios input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color: #eee;
+border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radios:hover input ~ .checkmark {
+background-color: grey;
+}
+
+/* When the radio button is checked, add a blue background */
+.radios input:checked ~ .checkmark {
+background-color: #000000;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radios:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radios input:checked ~ .checkmark:after {
+display: block;
+}
+
+
+#signinButton{
+margin-left: 1%;
+}
+
+#signoutButton{
+margin-left: 1%;
+}
+
+.not-signed{
+color: white;
+font-size: 22px;
+font-family: Helvetica, Arial, Sans-Serif;
+}
+
+.not-signed-link{
+color: black;
+font-family: Helvetica;
+}
+.not-signed-link:hover{
+color: rgb(29, 29, 29);
+font-family: Helvetica;
+}
+
+.inform-1{
+color: #2A0800;
+}
+
+
+#le{
+  color: #2A0800;
+  }
+  
+
+
+#flexCheckDefault{
+cursor: pointer;
+margin-right:0px;
+margin-left:38%;
+}
+
+.filter_product{
+margin-left: 2%;
+}
+
+.mail{
+color:black;
+}
+
+.mail:hover{
+color:white;
+}
+
+.process{
+  margin-top:2%; 
+  font-size: 35px;
+  color: #50362e;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.features{
+  margin-bottom:2%;
+  font-size:45px;
+  color: #2A0800;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main{
+  margin-left:2%;
+  margin-top:2%;
+}
+
+
+#break{
+  display:block
+}
+
+#link{
+  border: none;
+  background-color: Transparent;
+  color: #2A0800;
+  text-decoration:none;
+}
+
+#link:hover{
+  color: rgb(255, 51, 0);
+  text-decoration:underline;
+}
+
+
+.header{
+  margin-left:1%;
+  width:98.5%;
+  margin-top:1%;
+}
+
+/*Navbar logo Thing*/
+
+
+#logo{
+height:97px;
+margin-top:2%;
+}
+
+#ohbhai{
+font-size:35px;
+text-shadow: 3px 2px 2px yellow;
+}
+
+#boss_1:hover #logo{
+border:2px dotted black;
+transition:0.3s;
+}
+
+#terabaapaaya{
+background-color:white;
+color:maroon;
+border: 1px solid white;
+}
+
+#terabaapaaya:hover{
+background-color:maroon;
+color:white;
+border: 1px solid maroon;
+}
+
+#terabaapaaya:hover #ohbhai{
+text-shadow: 3px 2px 2px red;
+}
+
+#imgthingy{
+  width:11%;
+}
+
+/*Settings Start*/
+
+#save-changes{
+  margin-top:2%;
+  width: 20%;
+  height: 5%;
+  font-size:28px;
+}
+#signoutButton{
+  margin-top:2%;
+  width: 20%;
+  height: 5%;
+  font-size:28px;
+}
+#signinButton{
+  margin-top:2%;
+  width: 20%;
+  height: 5%;
+  font-size:28px;
+}
+
+#darkmode_btn{
+  margin-top:2%;
+  width: 20%;
+  height: 5%;
+  font-size:28px;
+}
+#checker{
+  font-size: 40px;
+  color: #2A0800;
+}
+
+#nam{
+  font-size: 20px;
+  width:40%;
+  height:4%;
+}
+
+
+/*Settings End*/
+
+/*Sell*/
+button.btn{
+  width:25% !important;
+  height:5% !important;
+  font-size: 28px;
+}
+.inform-1{
+  font-size:22px;
+}
+
+.title{
+  font-size:28px;
+}
+
+#keys{
+  width:30%;
+  height:2%;
+  font-size:20px;
+}
+
+#product-type{
+  width:30%;
+  height:2%;
+  font-size:20px;
+}
+
+.form-control{
+  height:2% !important;
+  font-size:20px !important;
+}
+
+#description{
+  height:10% !important;
+}
+
+.word-limit{
+  font-size:23px;
+  color:black
+}
+
+.filter{
+  font-size:20px;
+  width: 30%;
+}
+
+#signinthingy{
+  margin-top:20%;
+}
+
+#label1234{
+  font-size:30px;
+}
+
+.inform{
+  font-size:20px;
+}
+
+#verifyButton{
+  font-size:15px;
+}
+
+#startup{
+  margin-top:20%;
+  height:10%;
+}

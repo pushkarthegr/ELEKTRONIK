@@ -1,0 +1,272 @@
+<html>
+
+<head><title id="titles">Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+
+  <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+
+  
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/599f35f2d2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="body" id="body" onload="load()" style="background-color: #ffebb3;">
+  <div class="header"> 
+    <table style="width:100%;margin-right:2%;">
+      <tr>
+        <td id="imgthingy"><a id="boss_1" style="float:left;" href="index.html">
+          <img id="logo" src="Elektronik_1.png"></a>
+
+        </td>
+        <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee>
+          <p id="ohbhai">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
+       </marquee>
+       </center>
+        </td>
+     </tr>
+   </table>
+</div>
+    <ul class="navbar navbar-default navbar-fixed-top " id="navbar">
+    <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+    <!-- This is Shop -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+    <!-- This is Sell -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+    <!-- This is About Us -->
+    <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+     <!-- This is Cart -->
+       <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+     </ul>
+<div class="not-signed" id="not-signed" style="display:none; margin-left:1%; font-size:50px;">
+    <p> You cannot access the sell section because you are signed out.<br><a href="signin.html" class="not-signed-link">Please sign in to continue.</a>
+    </p></div>
+<br>
+<center>
+<button class="btn btn-danger" id="remove" style="display:none;float:left; margin-left:2%; "onclick="remove()">Remove</button>
+<button class="btn btn-success" id="contactme" style="display:none; float:left; margin-left:2%;" onclick="contactme()">Contact Owner</button>
+
+</center>
+<br><br>
+<table class="container" style="width:90%; height:50%; float:left;margin-bottom: 50px;" id="detail">
+    
+<tr>
+
+<td style="width:40%;">
+<img id="image" style="width:100%;margin-left:3%;">
+
+<br><br>
+<!--<p class="inform" style="margin-left:3%;"><i>*For a bigger preview click on the image to open it in a new tab.</i></p>-->
+</td>
+<td class="content" style="float:left; width:60%;">
+<strong class="product_details" title="Product Name"><center><h2 id="product"></h2></center></strong>
+<br><br>
+<strong class="product_details" title="Product Price"></abbr><h3 id="cost"></h3></strong>
+<br><br>
+<strong class="product_details" title="Address Info"></abbr><h4 id="address"></h4></strong>
+<br><br>
+<strong class="product_details" title="Condition of the Product (Refurbished/New)"></abbr><h4 id="condition"></h4></strong>
+<br><br>
+<strong class="product_details" title="Product Description"><h4 id="description"></h4></strong>
+
+<button class="btn btn-success" id="contactme" style="display:none">Contact Owner</button>
+<br><br>
+</td>
+
+</tr>
+
+</table>
+
+
+<script> 
+id = localStorage.getItem("myids");
+key = "";
+var firebaseConfig = {
+    apiKey: "AIzaSyC7Layb1bhfOcFa8FXeThBkTCQffJBQ8mo",
+    authDomain: "electronik-7fdac.firebaseapp.com",
+    databaseURL: "https://electronik-7fdac-default-rtdb.firebaseio.com",
+    projectId: "electronik-7fdac",
+    storageBucket: "electronik-7fdac.appspot.com",
+    messagingSenderId: "4802312631",
+    appId: "1:4802312631:web:07dedb7d4fc9f743499032"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+function load(){
+    mail = localStorage.getItem("ElektronikEmail");
+    var mode = localStorage.getItem("darkmode");
+    if(screen.width<770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style_phone.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle_phone.css";
+ }
+ }else if(screen.width>=770){
+  if(mode=="True"){
+  document.getElementById("darkmodeon").href="style.css";
+ }else{
+  document.getElementById("darkmodeon").href="darkstyle.css";
+ }
+ }
+ mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+    name = localStorage.getItem("ElektronikName");
+            sign = localStorage.getItem("SignIn");
+            if(name == null||sign == null || sign == "false"){
+                document.getElementById("not-signed").style.display = "block";
+                document.getElementById("detail").style.display = "none";
+           }else{
+                document.getElementById("not-signed").style.display = "none";
+                document.getElementById("detail").style.display = "block";
+          }
+    if(localStorage.getItem("myvalues") == "Television"){
+        key = "Television (TV)";
+    }else if(localStorage.getItem("myvalues") == "Laptop"){
+        key = "Laptop";
+    }else if(localStorage.getItem("myvalues") == "Mobile"){
+        key = "Mobile";
+    }else if(localStorage.getItem("myvalues") == "Chromebook"){
+        key = "Chromebook (CB)";
+    }else if(localStorage.getItem("myvalues") == "PlayStation"){
+        key = "PlayStation (PS)";
+    }
+
+    get();
+    mymail = localStorage.getItem("ElektronikEmail");
+     console.log(mymail);
+     if(mymail == "dagamudith@gmail.com"||mymail == "noobe.bot2@gmail.com"){
+       document.getElementById("helpme").style.display = "none";
+     }
+}
+
+function get(){
+    firebase.database().ref("/" + key).on('value', function (snapshot) {
+          snapshot.forEach(function (childSnapshot) {
+                childKey = childSnapshot.key; 
+                value = childSnapshot.val();
+
+                if(id == childKey){
+                    img = value["Image"];
+                    message = value["Message"];
+                    cost = parseInt(value["Cost"])+1000;
+                    cost_1 = value["Cost"];
+                    cost_2 = cost.toString();
+                    cost = value["Cost"];
+                    address = value["Address"];
+                    product = value["Product"];
+                    mail = value["Email"];
+                    names = value["Name"];
+                    condition = value["Condition"];
+                    document.getElementById("titles").innerHTML = product+" - Electronik";
+
+                    document.getElementById("image").src = img;
+                    document.getElementById("product").innerHTML = product;
+                    document.getElementById("cost").innerHTML = "₹"+cost;
+                    document.getElementById("cost").innerHTML = "₹"+cost_1+"ㅤ"+"<strike>₹</strike>"+cost_2.strike();
+                    document.getElementById("address").innerHTML = address;
+                    document.getElementById("condition").innerHTML = condition;
+                    document.getElementById("description").innerHTML = message;
+                    document.getElementById("contactme").style.display = "block";
+                    if(mail == localStorage.getItem("ElektronikEmail")||localStorage.getItem("ElektronikEmail")=="dagamudith@gmail.com"||localStorage.getItem("ElektronikEmail")=="noobe.bot2@gmail.com"){
+                        document.getElementById("remove").style.display = "block";
+                    }
+                }
+            });
+      });
+}
+function contactme(){
+    document.getElementById("contactme").disabled = true;
+    Email.send({
+        SecureToken : "cd077735-0f01-43c6-87e6-45780c7cb99d",
+        To : mail,
+        From : "noobe.bot2@gmail.com",
+        Subject : localStorage.getItem("ElektronikName")+" wants to buy your product.",
+        Body : localStorage.getItem("ElektronikName")+" wants to buy your "+product+".<br>The buyers email is "+localStorage.getItem("ElektronikEmail")+"."
+    });
+        Email.send({
+        SecureToken : "cd077735-0f01-43c6-87e6-45780c7cb99d",
+        To : localStorage.getItem("ElektronikEmail"),
+        From : "noobe.bot2@gmail.com",
+        Subject : "The contact details",
+        Body : "The name of the seller is "+names+".<br>You can contact the owner with email - "+mail+"."
+    });
+    window.alert("A Mail to the seller has been sent about your contact details and the contact details of the seller has been sent at your mail.");
+}
+function remove(){
+    firebase.database().ref(key+"/"+id).remove();
+    setTimeout(function(){
+        window.alert("The product has successfully been removed from the website, Now you will be directed to the home page.");
+        window.location = "index.html";
+    },3000);
+}
+</script><ul class="navbar navbar-default navbar-fixed-bottom " id="navbar_bottom">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+  <!-- This is Shop -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+  <!-- This is Sell -->
+  <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+  <!-- This is About Us -->
+  <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+   <!-- This is Cart -->
+     <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
+     </ul>
+<br><Br><br>
+  <br><Br><br>
+    <br><Br><br>
+      <br><Br><br>
+        <br><Br><br>
+          <br><Br><br>
+            
+        <br><Br><br>
+          <br><Br><br>
+<table class="foot" margin-top:30%;>
+  <tr>
+    <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width: 30%;">
+      
+  <a class="end"href="index.html">  <img src="Elektronik_1.png" class="footitleimg">
+    <h2 class="foottitle">Elektronik </h2>
+
+  </a>
+    </td>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+       <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Purpose </h4>
+       <p style="color: #ffffff; margin-left: 10px; margin-right: 10px"> This website is made to help connect sellers and buyers only. There is no other reason for the making of this website. </p>
+      </td>
+      <td valign="top" style="border: none; border-right: 1px solid black; text-align: center; width:30%;">
+     <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Contact Us </h4>
+     <p style="color: #ffffff; margin-left: 10px; margin-right: 10px;"> If you have any queries you may feel free to contact us at our
+       <a class="end" href="mailto:dagamudith@gmail.com?subject=Query - Elektronik"> Help Desk</a>
+         or call us at <font class="end"> +91 9987677898 </font> </p>
+     </td>
+     <td valign="top" style="border: none; text-align: center; width:10%;">
+       <h4 style="color: grey; margin-left: 10px; margin-right: 10px"> Social </h4>
+       <a href="mailto:dagamudith@gmail.com?subject=Social - Elektronik" target="_blank"> <img class="social" src="gmail.png">  </a>
+       <a href="https://discord.gg/dpg8tP7CFk" target="_blank"> <img class="social" src="discord.png">  </a>
+     </td>
+ </tr>
+<tr>
+
+<td>
+
+
+</td>
+</tr><tr><td>
+<br></td></tr>
+</table>
+</body>
+
+</html>

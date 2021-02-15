@@ -1,0 +1,77 @@
+<html>
+
+<head><title>Contact Us - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  
+
+  <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body onload="load()" class="body" id="body" style="background-color:#ffebb3;"><a href="index.html">  <img class="tech" src="Elektronik_1.png"> </a>
+  <h1 class="head1"> <marquee style="width:100%"> <font style="text-align: center;">ㅤㅤㅤㅤElektronik<br>When Performance Matters </font></marquee> </h1>
+
+</a>
+<ul class="navbar">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+    <!-- This is Shop -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+    <!-- This is Sell -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+    <!-- This is About Us -->
+    <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+      <!-- This is About Us -->
+      <li class="navbar_list"> <a style="float:right;" class="unactive" href="aboutus.html"><i class="far fa-id-card"id="unactiveicon"></i> About Us </a> </li>
+       <!-- This is Contact Us -->
+       <li class="navbar_list"> <a style="float:right;" class="active" href="contactus.html"></i><i class="fas fa-phone"id="activeicon"></i> Contact Us </a> </li>
+       <!-- This is Cart -->
+       <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-shopping-cart"id="unactiveicon"></i> Cart </a> </li>
+       <!-- This is Help -->
+       <li class="navbar_list"> <a style="float:right;" class="unactive" href="help.html"><i class="fas fa-question-circle"id="unactiveicon"></i> Help </a> </li>
+  </ul>
+<div style="margin-left:1%;">
+
+<h2>Here are the ways u can reach us:-</h2>
+
+<br>
+<h3><a href="mailto:dagamudith@gmail.com?subject=Query - Elektronik"><img src="gmail.png" class="contact" style="float: left;"></a>
+<a href="https://discord.gg/dpg8tP7CFk"><img src="discord.png" class="contact" style="float: left;"></a></h3>
+<br><br><br>
+<h3>Phone- +91 9987677898</h3>
+</div>
+
+<script>
+
+  function load(){
+   var mode = localStorage.getItem("darkmode");
+   if(mode=="True"){
+    document.getElementById("darkmodeon").href="style.css";
+   }else{
+    document.getElementById("darkmodeon").href="darkstyle.css";
+   }
+  
+  }
+  
+  
+  
+  </script>
+
+</body>
+
+</html>
+

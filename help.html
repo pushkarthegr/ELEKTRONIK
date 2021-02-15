@@ -1,0 +1,103 @@
+<html>
+
+<head><title>Help - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  
+
+  <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body onload="load()" class="body" id="body" style="background-color: #ffebb3;"><a href="index.html">  <img class="tech" src="Elektronik_1.png"> </a>
+  <h1 class="head1"> <marquee style="width:100%"> <font style="text-align: center;">ㅤㅤㅤㅤElektronik<br>When Performance Matters </font></marquee> </h1>
+
+</a>
+<ul class="navbar">
+  <li class="navbar_list_1"> <a class="unactive" style="float:left;" href="index.html"><i class="fas fa-home" id="unactiveicon"></i> Home</a></li>
+    <!-- This is Shop -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive" href="shop.html"><i class="fas fa-store-alt"id="unactiveicon"></i> Shop</a> </li>
+    <!-- This is Sell -->
+    <li class="navbar_list"> <a style="float:left;" class="unactive"  href="sell.html"><i class="fas fa-money-check-alt"id="unactiveicon"></i> Sell</a> </li>
+    <!-- This is About Us -->
+    <li class="navbar_list"> <a style="float:right;" class="unactive" href="settings.html"><i class="fas fa-cog"id="unactiveicon"></i> Settings </a> </li>
+      <!-- This is About Us -->
+      <li class="navbar_list"> <a style="float:right;" class="unactive" href="aboutus.html"><i class="far fa-id-card"id="unactiveicon"></i> About Us </a> </li>
+       <!-- This is Contact Us -->
+       <li class="navbar_list"> <a style="float:right;" class="unactive" href="contactus.html"></i><i class="fas fa-phone"id="unactiveicon"></i> Contact Us </a> </li>
+       <!-- This is Cart -->
+       <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-shopping-cart"id="unactiveicon"></i> Cart </a> </li>
+       <!-- This is Help -->
+       <li class="navbar_list"> <a style="float:right;" class="active" href="help.html"><i class="fas fa-question-circle"id="activeicon"></i> Help </a> </li>
+  </ul>
+<br>
+<p class="help_content"> In this guide you will learn how to buy/sell goods on our website. For better understanding visit the personal guide for customers and retailers. </p>
+<p class="help_content"> <b>Note:</b>  <br> Here, on this website no deals or transactions will occur. Our aim is to connect customers and retailers.</p>
+
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br id="#sell">
+<br>
+
+<h1 class="check"> Guide for Retailers:</h1>
+
+<p class="check1"> If you are a retailer and is willing to sell your product, then you are on the right place. Here, you can put your product online
+    and sell it offline. The process is pretty simple. You need to go to <a class="learn" href="settings.html"> settings</a> and sign in. Then, it will ask your 
+    address and other details. You need to fill it appropriately so that when customers will want to buy your product they can get the right data. If 
+    you have any queries visit the <a class="learn" href="contatus.html">Contact Us</a> section.
+</p>
+
+
+<br>
+<br>
+<br>
+<br id="#buy">
+<br>
+
+<h1 class="check"> Guide for Customers:</h1>
+
+<p class="check1"> If you are a customer and is willing to buy a product, then you are on the right place. Here, you can check a product online
+    and buy it offline. The process is pretty simple. You need to go to <a class="learn" href="settings.html"> settings</a> and sign in. Then, it will ask your 
+     details. You need to fill it appropriately so that retailers can keep the product ready for you and contact you if needed. If 
+     you have any queries visit the <a class="learn" href="contatus.html">Contact Us</a> section.
+</p>
+<br>
+<br>
+<br>
+<br>
+</body>
+
+<script>
+
+  function load(){
+   var mode = localStorage.getItem("darkmode");
+   if(mode=="True"){
+    document.getElementById("darkmodeon").href="style.css";
+   }else{
+    document.getElementById("darkmodeon").href="darkstyle.css";
+   }
+  
+  }
+  
+  
+  
+  </script>
+</html>

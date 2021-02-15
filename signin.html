@@ -1,0 +1,144 @@
+<html>
+    <head><title>Sign In - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <title>Elektronik Sign-in</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>  
+        <link rel="stylesheet" href="style.css" id="darkmodeon"></link>
+        
+    </head>
+    <body onload="load()">
+        
+<a class="homereturn" id="huhshshs"style="float:left; top:0; margin-top:5px; margin-left:5px;" href="index.html">&#8592; Return to Home</a><br><br>
+<center><img src="Elektronik.png" id="startup" width="300" height="150">
+</center>
+        <div class="container" id="signinthingy" style="margin-top: auto">
+        <center>
+            <!-- Mail Id -->
+            <label id="label1234">Email</label>
+            <input type="email" class="form-control" placeholder="Enter Email Here" id="email">
+            <br>
+            <!-- Username -->
+            <label id="label1234">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Your Name Here" id="name"></center><p class="inform"><i>*If you are a seller, then enter your shop name. You can even change your name by putting a new one.</i></p>
+            <br>
+            <!-- Type of User -->
+            <label id="label1234" class="radios">Customer (Person)
+                <input type="radio" checked="checked" name="radio" id="consumer">
+                <span class="checkmark"></span>
+              </label>
+              <label id="label1234" class="radios">Shopkeeper
+                <input type="radio" name="radio" id="shopkeeper">
+                <span class="checkmark"></span>
+              </label>
+                  </label><p class="inform"><i>*Your selection above will affect how you sell your electronic goods. If you select customer, your goods will be sold as refurbished.</i></p>
+                  <center>
+            <br>
+            <hr>
+            <!-- verification -->
+            <button class="btn btn-success" id="verifyButton" onclick="click1()">Get verification code</button>
+            <hr>
+            <div id="verify">
+                <label id="label1234" style="display:none;">Enter code</label>
+                <input type="number" class="form-control" id="verifyInput" placeholder="Enter code" style="display:none; width:30%;">
+                <hr></center>
+                    <center> <table id="terms_main" style="margin-left:35%; display:none;">
+                        <tr>
+                        
+                        <td class="checkbox" width="2%;">
+                        <input type="checkbox" id="terms_content" value="" style="width:10px; cursor:pointer;"> 
+                        </td>
+                        <td class="checkbox"><label  style="margin-top:0.65%;" id="terms_label">&nbsp;I have read and accepted to the <a class="text-primary" style="cursor:pointer" id="terms_link" onclick="tc()">Terms & Conditions.</a> 
+                        </label></td>
+                    </tr>
+                    </table>
+                    <iframe src="t&c.html" id="tc_iframe" width="50%" height="40%" style="display:none;border:1px solid black; padding:12px 12px;" title="Iframe Example"></iframe>
+                    <br></div><center>
+                <!-- Final Sign In -->
+            <div id="verify1" style="display:none;">
+                <button class="btn btn-danger" onclick="verifyMe()">Verify and Sign-In</button><p class="inform"><i>*Once signed in you can only change your Name and nothing else.</i></p>
+            </div>
+            </div></center>
+
+           
+        <script>
+            console.log("Please do not write any code which you do not understand!");
+            verify = 0;
+            code = 0;
+
+            function load(){
+                name = localStorage.getItem("ElektronikName");
+                sign = localStorage.getItem("SignIn");
+                if(sign == "true"){
+                    window.alert("It looks like you are already signed in with the id " +localStorage.getItem("ElektronikEmail")+
+                    ". You will be redirected to index.html To sign out go to settings.html");
+                    window.location = "index.html";
+                }
+                if(screen.width<770){
+               
+                    document.getElementById("darkmodeon").href="style_phone.css";
+                   }else if(screen.width>=770){
+  
+              document.getElementById("darkmodeon").href="style.css";
+ }
+            }
+
+            // Checkign whether inputs are filled or are null
+            
+
+            function click1(){
+                if(verify == 0){
+                    if(document.getElementById("email").value==""||document.getElementById("name").value==""){
+                         window.alert("Please fill in all inputs");
+                         console.log("Alert");
+                    }else{
+                        verify = 0;
+                        document.getElementById("verify").style.display = "block";
+                        document.getElementById("label1234").style.display = "block";
+                        document.getElementById("verify1").style.display = "block";
+                        document.getElementById("terms_main").style.display = "block";
+                        document.getElementById("verifyInput").style.display = "block";
+                        document.getElementById("verifyButton").innerHTML = "Re-send Code";
+                        code = Math.floor(Math.random()*10000);
+                        Email.send({
+                            SecureToken : "cd077735-0f01-43c6-87e6-45780c7cb99d",
+                            To : document.getElementById("email").value,
+                            From : "noobe.bot2@gmail.com",
+                            Subject : "Verification Code - Elektronik",
+                            Body : document.getElementById("name").value+" to verify your mail enter this code: "+code+". <br> Do not share this code to anyone whom you don't trust."
+                        }).then(
+                            
+                        );
+                        console.log("Success");
+                    }
+                }
+            }
+            function tc(){
+               document.getElementById("tc_iframe").style.display = "block";
+            }
+
+            function verifyMe() {
+                if(document.getElementById("terms_content").checked == false){
+                    window.alert("Please accept to our Terms & Conditions!");
+                }else if(document.getElementById("verifyInput").value == code && document.getElementById("terms_content").checked == true) {
+                    localStorage.setItem("ElektronikEmail", document.getElementById("email").value);
+                    localStorage.setItem("ElektronikName", document.getElementById("name").value);
+                    localStorage.setItem("SignIn", "true");
+                    
+                    email = localStorage.getItem("ElektronikEmail", document.getElementById("email").value);
+                    if(document.getElementById("consumer").checked == true){
+                        localStorage.setItem("ElectronikPerson","consumer");
+                    }else if(document.getElementById("shopkeeper").checked == true){
+                        localStorage.setItem("ElectronikPerson","keeper");
+                    }
+                    window.alert("Succesfully signed you in! You are beign redirected to homepage.");
+                    window.location = "index.html";
+                }
+                else {
+                    window.alert("Oops, you entered the wrong code!");
+                }
+                identity = document.getElementById("identity").value;
+                
+            }
+        </script>
+    </body>
+</html>
