@@ -184,6 +184,9 @@ function get(){
                     if(mail == localStorage.getItem("ElektronikEmail")||localStorage.getItem("ElektronikEmail")=="dagamudith@gmail.com"||localStorage.getItem("ElektronikEmail")=="noobe.bot2@gmail.com"){
                         document.getElementById("remove").style.display = "block";
                     }
+                    if(mail == localStorage.getItem("ElektronikEmail")){
+                      document.getElementById("contactme").style.display = "none";
+                    }
                 }
             });
       });

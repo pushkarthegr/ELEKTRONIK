@@ -106,12 +106,11 @@
     </div>
     <br><br><br><br><br>
     <center>
-      <p style="font-size:25px;font-weight:900;display:none;" id="le">It seems empty over here. You can put one on <a href="sell.html" class="sale">sale</a>.</p>
+      <p style="font-size:25px;font-weight:900;display:none;" id="resultss">It seems empty over here. You can put one on <a href="sell.html" class="sale">sale</a>.</p>
     </center>
     <div id="tv"></div>
   
     <center>
-      <p style="color:black;font-size: 20px; display:none; margin-bottom:15%;" id="resultss">No results.</p>
     </center>
   </div>
   <br><br><br><br><br><br><br><Br><br><br>
@@ -210,69 +209,27 @@
             },2000);
             setTimeout(function(){
               sure();
-              if(document.getElementById("tv").innerHTML == ""){
-                document.getElementById("products").style.display = "block";
-              document.getElementById("range").style.display = "block";
-              document.getElementById("product").style.display = "block";
-              document.getElementById("ranges").style.display = "block";
-              document.getElementById("le").style.display = "block";
-              document.getElementById("inform_reload").style.display = "none";
-              }
+              
             },4000);
             setTimeout(function(){
               sure();
-              if(document.getElementById("tv").innerHTML == ""){
-                document.getElementById("products").style.display = "block";
-              document.getElementById("range").style.display = "block";
-              document.getElementById("product").style.display = "block";
-              document.getElementById("ranges").style.display = "block";
-              document.getElementById("le").style.display = "block";
-              document.getElementById("inform_reload").style.display = "none";
-              }
+              
             },6000);
             setTimeout(function(){
               sure();
-              if(document.getElementById("tv").innerHTML == ""){
-                document.getElementById("products").style.display = "block";
-              document.getElementById("range").style.display = "block";
-              document.getElementById("product").style.display = "block";
-              document.getElementById("ranges").style.display = "block";
-              document.getElementById("le").style.display = "block";
-              document.getElementById("inform_reload").style.display = "none";
-              }
+              
             },8000);
             setTimeout(function(){
               sure();
-              if(document.getElementById("tv").innerHTML == ""){
-                document.getElementById("products").style.display = "block";
-              document.getElementById("range").style.display = "block";
-              document.getElementById("product").style.display = "block";
-              document.getElementById("ranges").style.display = "block";
-              document.getElementById("le").style.display = "block";
-              document.getElementById("inform_reload").style.display = "none";
-              }
+              
             },10000);
             setTimeout(function(){
               sure();
-              if(document.getElementById("tv").innerHTML == ""){
-                document.getElementById("products").style.display = "block";
-              document.getElementById("range").style.display = "block";
-              document.getElementById("product").style.display = "block";
-              document.getElementById("ranges").style.display = "block";
-              document.getElementById("le").style.display = "block";
-              document.getElementById("inform_reload").style.display = "none";
-              }
+              
             },12000);
             setTimeout(function(){
               sure();
-              if(document.getElementById("tv").innerHTML == ""){
-                document.getElementById("products").style.display = "block";
-              document.getElementById("range").style.display = "block";
-              document.getElementById("product").style.display = "block";
-              document.getElementById("ranges").style.display = "block";
-              document.getElementById("le").style.display = "block";
-              document.getElementById("inform_reload").style.display = "none";
-              }
+              
             },14000);
 
             mymail = localStorage.getItem("ElektronikEmail");
@@ -485,6 +442,14 @@
                            buttons = "<button id="+values_main+" value="+key+" onclick='next(this.id,this.value)' style='width:40% !important;'class='link btn btn-danger'>Read-more</button>";
                           document.getElementById("tv").innerHTML = document.getElementById("tv").innerHTML+"<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12' onload='sure()'style='border:2px solid black;text-align:center;'>"+"<h2>"+product+"</h2><br>"+img1+"<br>"+money+"<br>"+condi+"<br>"+buttons+"<br><br></div>";
                         }
+                        if(document.getElementById("tv").innerHTML == ""){
+                document.getElementById("products").style.display = "block";
+              document.getElementById("range").style.display = "block";
+              document.getElementById("product").style.display = "block";
+              document.getElementById("ranges").style.display = "block";
+              document.getElementById("le").style.display = "block";
+              document.getElementById("inform_reload").style.display = "none";
+              }
                 });
           });
         }
