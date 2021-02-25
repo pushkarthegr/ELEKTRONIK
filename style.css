@@ -1,3 +1,28 @@
+.content{
+  width:300px;
+  height:280px;
+  display: inline-block;
+  margin-left:20px;
+}
+.colorak{
+  background-color: #2A0800;
+}
+.colordo{
+  background-color: #50362e;
+}
+.tint_imgs{
+  width:200px;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+#tints{
+  background-color: #BEA8A7;
+  height:300px;
+  width:80%;
+  margin:0px auto;
+  overflow: scroll;
+  margin-top: 10px;
+}
 #navbar{
   display: table;
   list-style: none;
@@ -307,6 +332,21 @@ border: 1px solid red !important;
 
 .body{
 background-color: #BEA8A7 !important;
+}
+
+
+#upload{
+border: 3px solid #2A0800;
+width: 10%;
+padding: 12px 16px;
+margin-bottom: 2%;
+color: #F4DBD8;
+background-color: #2A0800;
+margin-left: 2%;
+}
+
+#upload:hover{
+border: 3px solid #F4DBD8;
 }
 
 

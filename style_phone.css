@@ -1,3 +1,28 @@
+.content{
+  width:300px;
+  height:280px;
+  display: inline-block;
+  margin-left:20px;
+}
+.colorak{
+  background-color: #2A0800;
+}
+.colordo{
+  background-color: #50362e;
+}
+.tint_imgs{
+  width:200px;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+#tints{
+  background-color: #BEA8A7;
+  height:300px;
+  width:80%;
+  margin:0px auto;
+  overflow: scroll;
+  margin-top: 100px;
+}
 #navbar{
   display: table;
   list-style: none;

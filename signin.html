@@ -100,15 +100,14 @@
                         document.getElementById("verifyButton").innerHTML = "Re-send Code";
                         code = Math.floor(Math.random()*10000);
                         Email.send({
-                            SecureToken : "cd077735-0f01-43c6-87e6-45780c7cb99d",
+                            SecureToken : "7106a9ed-b4de-4742-a5d8-a55e421d0580",
                             To : document.getElementById("email").value,
                             From : "noobe.bot2@gmail.com",
                             Subject : "Verification Code - Elektronik",
                             Body : document.getElementById("name").value+" to verify your mail enter this code: "+code+". <br> Do not share this code to anyone whom you don't trust."
                         }).then(
-                            
+                            console.log("Good")
                         );
-                        console.log("Success");
                     }
                 }
             }
@@ -130,7 +129,7 @@
                     }else if(document.getElementById("shopkeeper").checked == true){
                         localStorage.setItem("ElectronikPerson","keeper");
                     }
-                    window.alert("Succesfully signed you in! You are beign redirected to homepage.");
+                    window.alert("You have been signed in!");
                     window.location = "index.html";
                 }
                 else {

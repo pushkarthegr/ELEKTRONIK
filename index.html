@@ -3,7 +3,9 @@
 <head><title>Home - Elektronik</title><link rel="shortcut icon" type="image/x-icon" href="Elektronik_1.png" />
 
 <!-- Importing CSS-->
-
+  <style>
+   
+  </style>
   <link id="darkmodeon" rel="stylesheet" href="darkstyle.css">
 
   <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
@@ -33,8 +35,8 @@
           <img id="logo" src="Elektronik_1.png"></a>
 
         </td>
-        <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee>
-          <p id="ohbhai">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
+        <td style="width:90%; margin-left:0px;" id="terabaapaaya"><center><marquee id="terepaapokahisabaaya">
+          <p id="ohbhai" onclick="terabaapaaya">&nbsp;&nbsp;Elektronik</p><p>When Performance Matters</p>
        </marquee>
        </center>
         </td>
@@ -96,17 +98,16 @@
   </div>
 </div>
 <!-- Information About Our Website -->
-<p class="content"> 
-    On this website you will get all electronic products for your required need. All deals done over here will be secured and there will be no harm
-    to you or your device. To know how to go through this website you can visit our "<a href="help.html"></a>Help" section. We would like to server our best to you. 
-  
-  </p><div class="main">
-<h1 class="features">Features and Simple Walkthrough:</h1>
-<ol class="process">
-  <li>You first need to go to <button id="link" onclick="settings()">settings</button> if you have signed out or haven't signed in.</li>
-  <li>Then, you can either <button id="link" onclick="sell()">sell</button>/<button id="link" onclick="buy()">buy</button> a product.</li>
-  <li>Lastly, if you want to see the products you have put on sell then go to the <button id="link" onclick="products()">my products</button> section.</li>
-  </ol>
+<div id="tints">
+  <table>
+      <tr>
+          <td><div class="content colorak"><img src="redmi.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Redmi 7 pro</p></div></td>
+          <td><div class="content colordo"><img src="apple.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Macbook Pro</p></div></td>
+          <td><div class="content colorak"><img src="oppo.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Oppo A3S</p></div></td>
+          <td><div class="content colordo"><img src="sony.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Sony Bravia</p></div></td>
+      </tr>
+  </table>
+</div>
 </div>
 <br><br><br>  <ul class="navbar navbar-default navbar-fixed-bottom " id="navbar_bottom">
     <li class="navbar_list_1"> <a class="active" style="float:left;" href="index.html"><i class="fas fa-home" id="activeicon"></i> Home</a></li>
@@ -157,7 +158,9 @@
   
 <script>
 //To load the mode selected by user
-
+function terabaapaaya(){
+  document.getElementById("terepaapokahisabaaya").style.marquee = false;
+}
 function settings(){
   window.location = "settings.html";
 }
@@ -188,9 +191,6 @@ function load(){
  }
  mymail = localStorage.getItem("ElektronikEmail");
      console.log(mymail);
-     if(mymail == "dagamudith@gmail.com"||mymail == "noobe.bot2@gmail.com"){
-       document.getElementById("helpme").style.display = "none";
-     }
 
 }
 

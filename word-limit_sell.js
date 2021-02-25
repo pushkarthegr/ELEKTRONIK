@@ -43,9 +43,9 @@ function addres(){
 function descript(){
     dya = document.getElementById("description").value;
     dya1 = dya.length;
-    document.getElementById("description_bold").innerHTML = 300-dya1;
-    lua = 300-dya1;
-    if(dya1 == 300){
+    document.getElementById("description_bold").innerHTML = 1000-dya1;
+    lua = 1000-dya1;
+    if(dya1 == 1000){
         dya2 = document.getElementById("description").value;
     }
     if(lua<0){

@@ -1,3 +1,28 @@
+.content{
+  width:300px;
+  height:280px;
+  display: inline-block;
+  margin-left:20px;
+}
+.colorak{
+  background-color: #1a1a1a;
+}
+.colordo{
+  background-color: black;
+}
+.tint_imgs{
+  width:200px;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+#tints{
+  background-color: white;
+  height:300px;
+  width:80%;
+  margin:0px auto;
+  overflow: scroll;
+  margin-top: 10px;
+}
 #navbar{
     display: table;
     list-style: none;
@@ -306,6 +331,19 @@ input:checked + .slider:before {
 .body{
   background-color: #727272 !important;
 }
+
+
+#upload{
+  border: 3px solid black;
+  width:6%;
+  color: white;
+  background-color: black;
+}
+
+#upload:hover{
+  border: 3px solid white;
+}
+
 
 
 #start_capture{

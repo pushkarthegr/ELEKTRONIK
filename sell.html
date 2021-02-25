@@ -70,6 +70,7 @@
 
 
 <center><br><br>
+  <!--<input type="file" accept="image/*" style="width:6%; margin-left:2%; margin-bottom:2%;" id="upload" oninput="uploadVideo()"> -->
 <button style="display:block;" id="start_capture" onclick="capture()" class="btn">Capture Product</button>
 <!-- Info to tell the user --><i>
 <p id="info1" class="inform-1" style="margin-bottom:30%;">*Once you press the above button, then you will need to capture the image of your product and then fill out the product details. It might take some time for the camera to load, if it doesn't then reload the page.</p>
@@ -136,9 +137,9 @@
         <br>
       <!-- Description -->
       <br><label class="title">Description</label>
-      <textarea class="form-control" placeholder="Enter Product Description" style="resize:none; height:10%;" id="description" oninput="descript()"></textarea>
+      <textarea class="form-control" placeholder="Enter Product Description" style="resize:none; height:20%;" id="description" oninput="descript()"></textarea>
       <p style="float:left;" id="description_bold_1" class="word-limit">Characters left before exceeding word limit:&nbsp;</p>
-        <b style="float:left;" id="description_bold" class="word-limit">300</b><br>
+        <b style="float:left;" id="description_bold" class="word-limit">1000</b><br>
         <br>
       <br>
     <br>
@@ -214,7 +215,30 @@
 <script src="word-limit_sell.js"></script>
 <script>
   //To save the mode which user decided
-  
+  function uploadVideo(){
+    file = document.getElementById("upload").files;
+    console.log(file);
+    finalFile = file[0];
+    reader = new FileReader();
+    reader.onload = function(event){
+        document.getElementById("result").innerHTML = "<img id='resultImage' src="+event.target.result+" width='500' height='400'>";
+    }
+    reader.readAsDataURL(finalFile);
+
+    document.getElementById("webcam").style.display = "block";
+    document.getElementById("stop_capture").style.display = "block";
+    document.getElementById("stop_capture").innerHTML = "Clear Image";
+    document.getElementById("start_capture").style.display = "none";
+    document.getElementById("webcam").style.display = "none";
+    document.getElementById("upload").style.display = "block";
+    document.getElementById("capture_final").style.display = "none";
+    document.getElementById("retake").style.display = "none";
+    document.getElementById("info1").style.display = "none";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("info").style.display = "block";
+    document.getElementById("clearstart_capture").style.display = "none";
+    Webcam.reset();
+}
   function dropdown(){
         document.getElementById("default").style.display = "none";
     }
@@ -239,9 +263,6 @@
  }
  mymail = localStorage.getItem("ElektronikEmail");
      console.log(mymail);
-     if(mymail == "dagamudith@gmail.com"||mymail == "noobe.bot2@gmail.com"){
-       document.getElementById("helpme").style.display = "none";
-     }
     }
   function load(){
    var mode = localStorage.getItem("darkmode");
@@ -252,6 +273,15 @@
      document.getElementById("product-type").style.cursor = "not-allowed";
      document.getElementById("user-type-info").style.display = "block";
    }
+
+  mails = localStorage.getItem("ElektronikEmail");
+
+  if(mails == "dagamudith@gmail.com" || mails == "noobe.bot2@gmail.com"){
+    document.getElementById("name").disabled = false;
+  }else{
+    document.getElementById("name").disabled = true;
+  }
+
    if(screen.width<770){
   if(mode=="True"){
   document.getElementById("darkmodeon").href="style_phone.css";
@@ -314,6 +344,7 @@
     document.getElementById("stop_capture").style.display = "block";
     document.getElementById("start_capture").style.display = "none";
     document.getElementById("capture_final").style.display = "block";
+    document.getElementById("result").style.display = "none";
     document.getElementById("info1").style.display = "none";
     document.getElementById("info").style.display = "none";
     document.getElementById("clearstart_capture").style.display = "none";
@@ -326,6 +357,7 @@
     document.getElementById("info1").style.display = "none";
     document.getElementById("result").style.display = "none";
     document.getElementById("stop_capture").style.display = "block";
+    document.getElementById("result").style.dipslay = "none";
     document.getElementById("retake").style.display = "none";
     document.getElementById("capture_final").style.display = "block";
     document.getElementById("info").style.display = "block";
@@ -343,6 +375,7 @@
     document.getElementById("capture_final").style.display = "none";
     document.getElementById("info").style.display = "none";
     document.getElementById("clearstart_capture").style.display = "none";
+    document.getElementById("result").style.display = "none";
     Webcam.reset();
   }
   //Stop capturing User Product Image
@@ -353,6 +386,7 @@
     document.getElementById("stop_capture").style.display = "none";
     document.getElementById("capture_final").style.display = "none";
     document.getElementById("clearstart_capture").style.display = "none";
+    document.getElementById("result").style.display = "none";
     Webcam.reset();
   }
   //Capture Image
@@ -368,6 +402,7 @@
         document.getElementById("retake").style.display = "block";
         document.getElementById("result").style.display = "block";
         document.getElementById("clearstart_capture").style.display = "block";
+        document.getElementById("result").style.dipslay = "block";
     });
     Webcam.reset();
     }
@@ -411,7 +446,7 @@
         setTimeout(function(){
           window.alert("Successfully collected your product details.You will be redirected to home page");
           window.location = "index.html";
-        },3000);
+        },4000);
     }
     }
   </script>
