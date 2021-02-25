@@ -52,7 +52,7 @@
        <li class="navbar_list"> <a style="float:right;" class="unactive" href="cart.html"><i class="fas fa-box"id="unactiveicon"></i> My Products </a> </li>
      </ul>
 <div class="not-signed" id="not-signed" style="display:none; margin-left:1%; font-size:50px;">
-    <p> You cannot access the sell section because you are signed out.<br><a href="signin.html" class="not-signed-link">Please sign in to continue.</a>
+    <p> <br><a href="signin.html" class="not-signed-link">Please sign in to continue.</a>
     </p></div>
 <br>
 <center>
@@ -129,9 +129,13 @@ function load(){
             if(name == null||sign == null || sign == "false"){
                 document.getElementById("not-signed").style.display = "block";
                 document.getElementById("detail").style.display = "none";
+                document.getElementById("remove").style.display = "none";
+                document.getElementById("contactme").style.display = "none";
            }else{
                 document.getElementById("not-signed").style.display = "none";
                 document.getElementById("detail").style.display = "block";
+                document.getElementById("remove").style.display = "block";
+                document.getElementById("contactme").style.display = "block";
           }
     if(localStorage.getItem("myvalues") == "Television"){
         key = "Television (TV)";
