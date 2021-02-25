@@ -101,10 +101,10 @@
 <div id="tints">
   <table>
       <tr>
-          <td><div class="content colorak"><img src="redmi.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Redmi 7 pro</p></div></td>
-          <td><div class="content colordo"><img src="apple.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Macbook Pro</p></div></td>
-          <td><div class="content colorak"><img src="oppo.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Oppo A3S</p></div></td>
-          <td><div class="content colordo"><img src="sony.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Sony Bravia</p></div></td>
+          <td><div class="content colorak" style="text-align: center;"><img src="redmi.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Redmi 7 pro</p><button class="btn btn-danger" id="-MUJDXJdTOH0Nf6p3Mf7" value="Mobile" onclick="next(this.id,this.value)">Read-More</button></div></td>
+          <td><div class="content colordo" style="text-align: center;"><img src="apple.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Macbook Pro</p><button class="btn btn-danger" id="-MUJKscFYkLZ-GAEmj4d" value="Laptop" onclick="next(this.id,this.value)">Read-More</button></div></td>
+          <td><div class="content colorak" style="text-align: center;"><img src="oppo.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Oppo A3S</p><button class="btn btn-danger" id="-MTvWBggY9q03k2NvzTk" value="Mobile" onclick="next(this.id,this.value)">Read-More</button></div></td>
+          <td><div class="content colordo" style="text-align: center;"><img src="sony.png" class="tint_imgs"><hr><p style="color: white;text-align: center;">Sony Bravia</p><button class="btn btn-danger" id="-MUJN35KlBHOJPnYMvh3"value="Television" onclick="next(this.id,this.value)">Read-More</button></div></td>
       </tr>
   </table>
 </div>
@@ -161,6 +161,14 @@
 function terabaapaaya(){
   document.getElementById("terepaapokahisabaaya").style.marquee = false;
 }
+function next(myid,myvalue){
+          console.log(myid);
+          console.log(myvalue);
+    
+          localStorage.setItem("myids",myid);
+          localStorage.setItem("myvalues",myvalue);
+          window.location = "more.html";
+        }
 function settings(){
   window.location = "settings.html";
 }
