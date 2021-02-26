@@ -196,14 +196,14 @@ function contactme(){
         SecureToken : "7106a9ed-b4de-4742-a5d8-a55e421d0580",
         To : mail,
         From : "noobe.bot2@gmail.com",
-        Subject : localStorage.getItem("ElektronikName")+" wants to buy your product.",
+        Subject : localStorage.getItem("ElektronikName")+" showed interest in buying your "+product+" ("+condition+") - Elektronik",
         Body : localStorage.getItem("ElektronikName")+" wants to buy your "+product+" ("+condition+")<br><br>The product details are:<br>"+message+"<br><br>The buyers email is "+localStorage.getItem("ElektronikEmail")+".<br><br><br><br>*Note, if you didn't want to sell this product, then go to <a href='https://pushkarthegr.github.io/Elektronik/settings.html'>settings</a> and sign out. You may even change your mail password, because someone might have hacked into your mail account"
     });
         Email.send({
         SecureToken : "7106a9ed-b4de-4742-a5d8-a55e421d0580",
         To : localStorage.getItem("ElektronikEmail"),
         From : "noobe.bot2@gmail.com",
-        Subject : "The contact details",
+        Subject : "You showed interest in buying "+product+"("+condition+") - Elektronik",
         Body : "You wanted to buy "+product+" ("+condition+")<br><br>The product details are:<br>"+message+"<br><br>The sellers email is "+mail+".<br><br><br><br>*Note, if you didn't want to buy this product, then go to <a href='https://pushkarthegr.github.io/Elektronik/settings.html'>settings</a> and sign out. You may even change your mail password, because someone might have hacked into your mail account "
     });
     window.alert("A Mail to the seller has been sent about your contact details and the contact details of the seller has been sent at your mail.");

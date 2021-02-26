@@ -16,11 +16,10 @@
   margin-top: 10px;
 }
 #tints{
-  background-color: white;
+  background-color: #727272;
   height:300px;
   width:80%;
   margin:0px auto;
-  overflow: scroll;
   margin-top: 10px;
 }
 #navbar{

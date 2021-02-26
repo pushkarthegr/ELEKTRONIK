@@ -209,7 +209,9 @@
     window.location = "signin.html";
   }
   function save(){
-    if(document.getElementById("nam").value == ""||document.getElementById("nam").value == "ㅤ"){
+    var bol = document.getElementById("nam").value;
+    ff = bol.charAt(0);
+    if(document.getElementById("nam").value == ""||document.getElementById("nam").value == "ㅤ"||ff == " "){
       window.alert("Cannot save changes.");
     }else{
       localStorage.setItem("ElektronikName",document.getElementById("nam").value);
