@@ -100,13 +100,13 @@
                         document.getElementById("verifyButton").innerHTML = "Re-send Code";
                         code = Math.floor(Math.random()*10000);
                         Email.send({
-                            SecureToken : "7106a9ed-b4de-4742-a5d8-a55e421d0580",
+                            SecureToken : "b088c66f-1ad1-4e86-8675-f7ce1946b72a",
                             To : document.getElementById("email").value,
                             From : "noobe.bot2@gmail.com",
                             Subject : "Verification Code - Elektronik",
                             Body : document.getElementById("name").value+" to verify your mail enter this code: "+code+". <br> Do not share this code to anyone whom you don't trust."
                         }).then(
-                            console.log("Good")
+                            alert("OTP has been sent, Check your spam for email");
                         );
                     }
                 }
