@@ -106,7 +106,7 @@
                             Subject : "Verification Code - Elektronik",
                             Body : document.getElementById("name").value+" to verify your mail enter this code: "+code+". <br> Do not share this code to anyone whom you don't trust."
                         }).then(
-                            alert("OTP has been sent, Check your spam for email")
+                           message => alert(message)
                         );
                     }
                 }
